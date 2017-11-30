@@ -1,0 +1,4 @@
+services:
+#    accb.example:
+#        class: AccbBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
