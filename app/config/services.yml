@@ -13,3 +13,7 @@ services:
         # this means you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
         public: false
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8be86547c35ae289772023953db4699b0937ab22
