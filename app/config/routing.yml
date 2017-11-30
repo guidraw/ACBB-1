@@ -1,7 +1,3 @@
-<<<<<<< HEAD
 accb:
     resource: "@AccbBundle/Resources/config/routing.yml"
     prefix:   /
-
-=======
->>>>>>> 8be86547c35ae289772023953db4699b0937ab22
