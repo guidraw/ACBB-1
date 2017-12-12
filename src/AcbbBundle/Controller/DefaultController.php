@@ -1,6 +1,6 @@
 <?php
 
-namespace AccbBundle\Controller;
+namespace AcbbBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AccbBundle:Default:index.html.twig');
+        return $this->render('AcbbBundle:Default:index.html.twig');
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace AccbBundle\Entity;
+namespace AcbbBundle\Entity;
 
-use FOS\UserBundle\Model as BaseUser;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -13,7 +13,7 @@ class User extends BaseUser
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string

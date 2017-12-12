@@ -1,7 +1,7 @@
-AccbBundle\Entity\User:
+AcbbBundle\Entity\User:
     type: entity
     table: null
-    repositoryClass: AccbBundle\Repository\UserRepository
+    repositoryClass: AcbbBundle\Repository\UserRepository
     id:
         id:
             type: integer

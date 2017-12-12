@@ -4,7 +4,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "AccbBundle\\": "src/AccbBundle"
+            "AcbbBundle\\": "src/AcbbBundle"
         },
         "classmap": [
             "app/AppKernel.php",
@@ -23,6 +23,7 @@
         "php": ">=5.5.9",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
         "incenteev/composer-parameter-handler": "^2.0",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
@@ -31,7 +32,7 @@
         "symfony/swiftmailer-bundle": "^2.3.10",
         "symfony/symfony": "3.3.*",
         "twig/twig": "^1.0||^2.0",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "willdurand/propel-typehintable-behavior": "^1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

@@ -1,6 +1,6 @@
 <?php
 
-namespace AccbBundle\Repository;
+namespace AcbbBundle\Repository;
 
 /**
  * UserRepository

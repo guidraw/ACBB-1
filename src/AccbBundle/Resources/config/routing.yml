@@ -1,3 +1,0 @@
-accb_homepage:
-    path:     /
-    defaults: { _controller: AccbBundle:Default:index }
