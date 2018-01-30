@@ -54,14 +54,14 @@ class Club
      *
      * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Media", mappedBy="club")
      */
-    private $media;
+    private $medias;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->media = new ArrayCollection();
+        $this->medias = new ArrayCollection();
     }
 
     /**
@@ -128,5 +128,28 @@ class Club
         $this->logoClub = $logoClub;
     }
 
-}
+    /**
+     * Add media
+     *
+     * @param Media $media
+     *
+     * @return Club
+     */
+    public function addMedia(Media $media)
+    {
+        $this->medias[] = $media;
 
+        return $this;
+    }
+
+    /**
+     * Remove media
+     *
+     * @param Media $media
+     */
+    public function removeMedia(Media $media)
+    {
+        $this->medias->removeElement($media);
+    }
+
+}

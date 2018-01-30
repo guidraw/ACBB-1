@@ -121,8 +121,185 @@ class User extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
         $this->team = new ArrayCollection();
         $this->tutor = new ArrayCollection();
+    }
+
+    /**
+     * @return Address
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param Address $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlaceBirth()
+    {
+        return $this->placeBirth;
+    }
+
+    /**
+     * @param string $placeBirth
+     */
+    public function setPlaceBirth($placeBirth)
+    {
+        $this->placeBirth = $placeBirth;
+    }
+
+    /**
+     * @return string
+     */
+    public function getJob()
+    {
+        return $this->job;
+    }
+
+    /**
+     * @param string $job
+     */
+    public function setJob($job)
+    {
+        $this->job = $job;
+    }
+
+    /**
+     * @return string
+     */
+    public function getJobPhone()
+    {
+        return $this->jobPhone;
+    }
+
+    /**
+     * @param string $jobPhone
+     */
+    public function setJobPhone($jobPhone)
+    {
+        $this->jobPhone = $jobPhone;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return Media
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param Media $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
+
+    /**
+     * @return Nationality
+     */
+    public function getNationality()
+    {
+        return $this->nationality;
+    }
+
+    /**
+     * @param Nationality $nationality
+     */
+    public function setNationality($nationality)
+    {
+        $this->nationality = $nationality;
+    }
+
+    /**
+     * @return Status
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param Status $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return Status
+     */
+    public function getFamilySituation()
+    {
+        return $this->familySituation;
+    }
+
+    /**
+     * @param Status $familySituation
+     */
+    public function setFamilySituation($familySituation)
+    {
+        $this->familySituation = $familySituation;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $team
+     */
+    public function setTeam($team)
+    {
+        $this->team = $team;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTutor()
+    {
+        return $this->tutor;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $tutor
+     */
+    public function setTutor($tutor)
+    {
+        $this->tutor = $tutor;
     }
 
 

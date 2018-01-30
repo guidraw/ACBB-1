@@ -72,7 +72,7 @@ class Team
      *   }
      * )
      */
-    private $user;
+    private $users;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -87,15 +87,15 @@ class Team
      *   }
      * )
      */
-    private $media;
+    private $medias;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->user = new ArrayCollection();
-        $this->media = new ArrayCollection();
+        $this->users = new ArrayCollection();
+        $this->medias = new ArrayCollection();
     }
 
     /**
@@ -176,6 +176,54 @@ class Team
     public function setStatus($status)
     {
         $this->status = $status;
+    }
+
+    /**
+     * Add user
+     *
+     * @param User $user
+     *
+     * @return Team
+     */
+    public function addUser(User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param User $user
+     */
+    public function removeUser(User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Add media
+     *
+     * @param Media $media
+     *
+     * @return Team
+     */
+    public function addMedia(Media $media)
+    {
+        $this->medias[] = $media;
+
+        return $this;
+    }
+
+    /**
+     * Remove media
+     *
+     * @param Media $media
+     */
+    public function removeMedia(Media $media)
+    {
+        $this->medias->removeElement($media);
     }
 
 }

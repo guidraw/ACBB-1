@@ -44,22 +44,22 @@ class Category
      *
      * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Album", mappedBy="category")
      */
-    private $album;
+    private $albums;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\News", mappedBy="category")
      */
-    private $news;
+    private $newses;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->album = new ArrayCollection();
-        $this->news = new ArrayCollection();
+        $this->albums = new ArrayCollection();
+        $this->newses = new ArrayCollection();
     }
 
     /**
@@ -110,5 +110,52 @@ class Category
         $this->status = $status;
     }
 
-}
+    /**
+     * Add album
+     *
+     * @param Album $album
+     *
+     * @return Album
+     */
+    public function addAlbum(Album $album)
+    {
+        $this->albums[] = $album;
 
+        return $this;
+    }
+
+    /**
+     * Remove album
+     *
+     * @param Album $album
+     */
+    public function removeAlbum(Album $album)
+    {
+        $this->albums->removeElement($album);
+    }
+
+    /**
+     * Add news
+     *
+     * @param News $news
+     *
+     * @return Category
+     */
+    public function addNews(News $news)
+    {
+        $this->newses[] = $news;
+
+        return $this;
+    }
+
+    /**
+     * Remove news
+     *
+     * @param News $news
+     */
+    public function removeNews(News $news)
+    {
+        $this->newses->removeElement($news);
+    }
+
+}

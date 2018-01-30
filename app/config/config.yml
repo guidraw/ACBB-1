@@ -75,5 +75,5 @@ fos_user:
     firewall_name: main
     user_class: AcbbBundle\Entity\User
     from_email:
-        address:        webmaster@example.com
-        sender_name:    Admin
+        address: webmaster@example.com
+        sender_name: Admin

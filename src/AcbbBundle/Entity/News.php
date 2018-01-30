@@ -99,14 +99,14 @@ class News
      *   }
      * )
      */
-    private $category;
+    private $categories;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->category = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     /**
@@ -251,6 +251,30 @@ class News
     public function setAuthor($author)
     {
         $this->author = $author;
+    }
+
+    /**
+     * Add category
+     *
+     * @param Category $category
+     *
+     * @return News
+     */
+    public function addCategory(Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param Category $category
+     */
+    public function removeCategory(Category $category)
+    {
+        $this->categories->removeElement($category);
     }
 
 }

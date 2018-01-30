@@ -90,22 +90,22 @@ class Album
      *   }
      * )
      */
-    private $category;
+    private $categories;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Media", mappedBy="album")
      */
-    private $media;
+    private $medias;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->category = new ArrayCollection();
-        $this->media = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+        $this->medias = new ArrayCollection();
     }
 
     /**
@@ -234,6 +234,54 @@ class Album
     public function setStatus($status)
     {
         $this->status = $status;
+    }
+
+    /**
+     * Add category
+     *
+     * @param Category $category
+     *
+     * @return Album
+     */
+    public function addCategory(Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param Category $category
+     */
+    public function removeCategory(Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Add media
+     *
+     * @param Media $media
+     *
+     * @return Album
+     */
+    public function addMedia(Media $media)
+    {
+        $this->medias[] = $media;
+
+        return $this;
+    }
+
+    /**
+     * Remove media
+     *
+     * @param Media $media
+     */
+    public function removeMedia(Media $media)
+    {
+        $this->medias->removeElement($media);
     }
 
 }

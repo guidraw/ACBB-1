@@ -66,7 +66,7 @@ class Media
      *   }
      * )
      */
-    private $album;
+    private $albums;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -81,7 +81,7 @@ class Media
      *   }
      * )
      */
-    private $club;
+    private $clubs;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -96,24 +96,24 @@ class Media
      *   }
      * )
      */
-    private $match;
+    private $matches;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Team", mappedBy="media")
      */
-    private $team;
+    private $teams;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->album = new ArrayCollection();
-        $this->club = new ArrayCollection();
-        $this->match = new ArrayCollection();
-        $this->team = new ArrayCollection();
+        $this->albums = new ArrayCollection();
+        $this->clubs = new ArrayCollection();
+        $this->matches = new ArrayCollection();
+        $this->teams = new ArrayCollection();
     }
 
     /**
@@ -196,5 +196,100 @@ class Media
         $this->status = $status;
     }
 
-}
+    /**
+     * Add album
+     *
+     * @param Album $album
+     *
+     * @return Media
+     */
+    public function addAlbum(Album $album)
+    {
+        $this->albums[] = $album;
 
+        return $this;
+    }
+
+    /**
+     * Remove album
+     *
+     * @param Album $album
+     */
+    public function removeAlbum(Album $album)
+    {
+        $this->albums->removeElement($album);
+    }
+
+    /**
+     * Add club
+     *
+     * @param Club $club
+     *
+     * @return Media
+     */
+    public function addClub(Club $club)
+    {
+        $this->clubs[] = $club;
+
+        return $this;
+    }
+
+    /**
+     * Remove club
+     *
+     * @param Club $club
+     */
+    public function removeClub(Club $club)
+    {
+        $this->clubs->removeElement($club);
+    }
+
+    /**
+     * Add matches
+     *
+     * @param Match $match
+     *
+     * @return Media
+     */
+    public function addMatch(Match $match)
+    {
+        $this->matches[] = $match;
+
+        return $this;
+    }
+
+    /**
+     * Remove match
+     *
+     * @param Match $match
+     */
+    public function removeMatch(Match $match)
+    {
+        $this->matches->removeElement($match);
+    }
+
+    /**
+     * Add team
+     *
+     * @param Team $team
+     *
+     * @return Media
+     */
+    public function addTeam(Team $team)
+    {
+        $this->teams[] = $team;
+
+        return $this;
+    }
+
+    /**
+     * Remove team
+     *
+     * @param Team $team
+     */
+    public function removeTeam(Team $team)
+    {
+        $this->teams->removeElement($team);
+    }
+
+}

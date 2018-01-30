@@ -108,14 +108,14 @@ class Match
      *
      * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Media", mappedBy="match")
      */
-    private $media;
+    private $medias;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->media = new ArrayCollection();
+        $this->medias = new ArrayCollection();
     }
 
     /**
@@ -276,6 +276,30 @@ class Match
     public function setTeam2($team2)
     {
         $this->team2 = $team2;
+    }
+
+    /**
+     * Add media
+     *
+     * @param Media $media
+     *
+     * @return Match
+     */
+    public function addMedia(Media $media)
+    {
+        $this->medias[] = $media;
+
+        return $this;
+    }
+
+    /**
+     * Remove media
+     *
+     * @param Media $media
+     */
+    public function removeMedia(Media $media)
+    {
+        $this->medias->removeElement($media);
     }
 
 }

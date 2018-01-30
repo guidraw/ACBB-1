@@ -82,7 +82,7 @@ class Membership
      *
      * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Insurance")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="insurance_id", referencedColumnName="idinsurance")
+     *   @ORM\JoinColumn(name="insurance_id", referencedColumnName="id")
      * })
      */
     private $insurance;
