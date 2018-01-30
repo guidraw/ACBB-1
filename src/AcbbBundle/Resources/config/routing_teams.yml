@@ -1,0 +1,15 @@
+acbb_team_team:
+    path:    /
+    defaults: { _controller: AcbbBundle:Teams:index }
+
+acbb_team_uniq:
+    path:    /{id}
+    defaults: { _controller: AcbbBundle:Teams:view }
+
+acbb_team_score:
+    path:    /{id}/resultat
+    defaults: { _controller: AcbbBundle:Teams:score }
+
+acbb_team_time:
+    path:    /{id}/horaire
+    defaults: { _controller: AcbbBundle:Teams:time }

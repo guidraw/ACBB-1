@@ -1,3 +1,90 @@
-accb_homepage:
+acbb_homepage:
     path:     /
     defaults: { _controller: AcbbBundle:Default:index }
+
+acbb_club:
+    resource: "@AcbbBundle/Resources/config/routing_club.yml"
+    prefix:   /club
+
+acbb_news:
+    path:    /actualites
+    defaults: { _controller: AcbbBundle:News:index }
+
+acbb_news_uniq:
+    path:    /actualites/{id}
+    defaults: { _controller: AcbbBundle:News:view }
+
+acbb_teams:
+    resource: "@AcbbBundle/Resources/config/routing_teams.yml"
+    prefix:    /equipes
+
+acbb_school:
+    path:    /ecole-hockey
+    defaults: { _controller: AcbbBundle:Default:school }
+
+acbb_inscription:
+    resource: "@AcbbBundle/Resources/config/routing_inscription.yml"
+    prefix:   /inscription
+
+acbb_contact:
+    path:    /contact
+    defaults: { _controller: AcbbBundle:Default:contact }
+
+acbb_faq:
+    path:    /faq
+    defaults: { _controller: AcbbBundle:Default:faq }
+
+acbb_media:
+    path:    /media
+    defaults: { _controller: AcbbBundle:Media:index }
+
+acbb_media_uniq:
+    path:    /media/{id}
+    defaults: { _controller: AcbbBundle:Media:view }
+
+#acbb_informations:
+#    resource: "@AcbbBundle/Resources/config/routing_informations.yml"
+#    prefex: /informations
+#
+#acbb_contact:s
+#    resource: "@AcbbBundle/Resources/config/routing_contact.yml"
+#    path:    /contacte
+#
+#acbb_links:
+#    resource: "@AcbbBundle/Resources/config/routing_links.yml"
+#    path:    /liens
+#
+#acbb_partners:
+#    ressource: "@AcbbBundle/Resources/config/routing_partners.yml"
+#    path:   /partenaires
+#
+#acbb_teams:
+#    path:    /equipes
+#
+#acbb_team_uniq:
+#    path:    /equipes/{id}
+#
+#acbb_score:
+#    path:    /match_scrore
+#
+#acbb_score_category:
+#    path:    /match_scrore/{category}
+#
+#acbb_calendar:
+#    ressource: "@AcbbBundle/Resources/config/routing_calendar.yml"
+#    path:    /calendrier
+#
+#
+#acbb_articles:
+#    path:    /articles
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+acbb_club_club:
+    path:    /
+    defaults: { _controller: AcbbBundle:Club:index }
+
+acbb_club_history:
+    path:    /histoire
+    defaults: { _controller: AcbbBundle:Club:history }
+
+acbb_club_ceo:
+    path:    /dirigeant
+    defaults: { _controller: AcbbBundle:Club:ceo }

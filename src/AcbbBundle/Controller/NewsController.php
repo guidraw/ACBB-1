@@ -4,26 +4,26 @@ namespace AcbbBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class NewsController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AcbbBundle:Default:index.html.twig');
+        return $this->render('AcbbBundle:Default:news.html.twig');
     }
 
-    public function schoolAction()
+    public function viewAction($id)
     {
-        return $this->render('AcbbBundle:Default:school.html.twig');
+        return new Response("Affichage de news d'id : ".$id);
     }
 
-    public function contactAction()
+/*    public function scoreAction()
     {
         return $this->render('AcbbBundle:Default:contact.html.twig');
     }
 
-    public function faqAction()
+    public function timeAction()
     {
         return $this->render('AcbbBundle:Default:faq.html.twig');
-    }
+    }*/
 
 }

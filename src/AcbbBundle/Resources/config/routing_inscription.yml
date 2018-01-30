@@ -1,0 +1,11 @@
+acbb_inscription_inscription:
+    path:    /
+    defaults: { _controller: AcbbBundle:Inscription:index }
+
+acbb_inscription_document:
+    path:    /document
+    defaults: { _controller: AcbbBundle:Inscription:document }
+
+acbb_inscription_firstStep:
+    path:    /premier-pas
+    defaults: { _controller: AcbbBundle:Inscription:firstStep }
