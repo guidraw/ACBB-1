@@ -2,64 +2,147 @@
 
 namespace AcbbBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * User
+ *
+ * @ORM\Table(name="user", indexes={@ORM\Index(name="fk_user_address1_idx", columns={"address_id"}), @ORM\Index(name="fk_user_media1_idx", columns={"photo_id"}), @ORM\Index(name="fk_user_status1_idx", columns={"status_id"}), @ORM\Index(name="fk_user_nationality1_idx", columns={"nationality_id"}), @ORM\Index(name="fk_user_status2_idx", columns={"family_situation"})})
+ * @ORM\Entity
  */
 class User extends BaseUser
 {
     /**
-     * @var int
-     */
-    protected $id;
-
-    /**
      * @var string
+     *
+     * @ORM\Column(name="place_birth", type="string", length=45, nullable=false)
      */
     private $placeBirth;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="job", type="string", length=45, nullable=false)
      */
     private $job;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="job_phone", type="string", length=20, nullable=true)
+     */
+    private $jobPhone;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AcbbBundle\Entity\Address
+     *
+     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Address")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     * })
+     */
+    private $address;
+
+    /**
+     * @var \AcbbBundle\Entity\Media
+     *
+     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Media")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="photo_id", referencedColumnName="id")
+     * })
+     */
+    private $photo;
+
+    /**
+     * @var \AcbbBundle\Entity\Nationality
+     *
+     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Nationality")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="nationality_id", referencedColumnName="id")
+     * })
+     */
+    private $nationality;
+
+    /**
+     * @var \AcbbBundle\Entity\Status
+     *
+     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Status")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="status_id", referencedColumnName="id")
+     * })
+     */
+    private $status;
+
+    /**
+     * @var \AcbbBundle\Entity\Status
+     *
+     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Status")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="family_situation", referencedColumnName="id")
+     * })
+     */
+    private $familySituation;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Team", mappedBy="user")
+     */
+    private $team;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\User", inversedBy="user")
+     * @ORM\JoinTable(name="user_user",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="tutor_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $tutor;
+
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->team = new ArrayCollection();
+        $this->tutor = new ArrayCollection();
     }
 
-
     /**
-     * Get id
-     *
-     * @return int
+     * @return Address
      */
-    public function getId()
+    public function getAddress()
     {
-        return $this->id;
+        return $this->address;
     }
 
     /**
-     * Set placeBirth
-     *
-     * @param string $placeBirth
-     *
-     * @return User
+     * @param Address $address
      */
-    public function setPlaceBirth($placeBirth)
+    public function setAddress($address)
     {
-        $this->placeBirth = $placeBirth;
-
-        return $this;
+        $this->address = $address;
     }
 
     /**
-     * Get placeBirth
-     *
      * @return string
      */
     public function getPlaceBirth()
@@ -68,27 +151,157 @@ class User extends BaseUser
     }
 
     /**
-     * Set job
-     *
-     * @param string $job
-     *
-     * @return User
+     * @param string $placeBirth
      */
-    public function setJob($job)
+    public function setPlaceBirth($placeBirth)
     {
-        $this->job = $job;
-
-        return $this;
+        $this->placeBirth = $placeBirth;
     }
 
     /**
-     * Get job
-     *
      * @return string
      */
     public function getJob()
     {
         return $this->job;
     }
+
+    /**
+     * @param string $job
+     */
+    public function setJob($job)
+    {
+        $this->job = $job;
+    }
+
+    /**
+     * @return string
+     */
+    public function getJobPhone()
+    {
+        return $this->jobPhone;
+    }
+
+    /**
+     * @param string $jobPhone
+     */
+    public function setJobPhone($jobPhone)
+    {
+        $this->jobPhone = $jobPhone;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return Media
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param Media $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
+
+    /**
+     * @return Nationality
+     */
+    public function getNationality()
+    {
+        return $this->nationality;
+    }
+
+    /**
+     * @param Nationality $nationality
+     */
+    public function setNationality($nationality)
+    {
+        $this->nationality = $nationality;
+    }
+
+    /**
+     * @return Status
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param Status $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return Status
+     */
+    public function getFamilySituation()
+    {
+        return $this->familySituation;
+    }
+
+    /**
+     * @param Status $familySituation
+     */
+    public function setFamilySituation($familySituation)
+    {
+        $this->familySituation = $familySituation;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $team
+     */
+    public function setTeam($team)
+    {
+        $this->team = $team;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTutor()
+    {
+        return $this->tutor;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $tutor
+     */
+    public function setTutor($tutor)
+    {
+        $this->tutor = $tutor;
+    }
+
+
 }
 
