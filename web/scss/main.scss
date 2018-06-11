@@ -3,8 +3,11 @@
 
 // Partials
 @import 'partials/mixins',
-				'partials/variables',
-				'partials/structure';
+		'partials/variables',
+		'partials/structure';
+
+// Pages
+@import 'pages/home';	
 
 // Composants
-				
+@import 'components/header';		

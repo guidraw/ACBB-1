@@ -6,10 +6,18 @@ h1{
   font-family: 'Againts';
   color: #fff;
 }
-
 p{
   font-family: 'Circular Std Book';
   color: #fff;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  @media (min-width: 1200px){
+    width: 95%;
+  }
 }
 
 @font-face {
@@ -21,8 +29,8 @@ p{
 font-family: 'Circular Std Book';
 font-style: normal;
 font-weight: normal;
-src: local('Circular Std Book'), url('fonts/CircularStd-Book.woff') format('woff');
-src: local('Circular Std Book'), url('fonts/CircularStd-Book.otf') format('otf');
+src: local('Circular Std Book'), url('fonts/CircularStd-Book.woff') format('woff'), 
+url('fonts/CircularStd-Book.otf') format('otf');
 }
 
 
@@ -30,8 +38,8 @@ src: local('Circular Std Book'), url('fonts/CircularStd-Book.otf') format('otf')
 font-family: 'Circular Std Book Italic';
 font-style: normal;
 font-weight: normal;
-src: local('Circular Std Book Italic'), url('fonts/CircularStd-BookItalic.woff') format('woff');
-src: local('Circular Std Book Italic'), url('fonts/CircularStd-BookItalic.otf') format('otf');
+src: local('Circular Std Book Italic'), url('fonts/CircularStd-BookItalic.woff') format('woff'),
+url('fonts/CircularStd-BookItalic.otf') format('otf');
 }
 
 
@@ -39,8 +47,8 @@ src: local('Circular Std Book Italic'), url('fonts/CircularStd-BookItalic.otf') 
 font-family: 'Circular Std Medium';
 font-style: normal;
 font-weight: normal;
-src: local('Circular Std Medium'), url('fonts/CircularStd-Medium.woff') format('woff');
-src: local('Circular Std Medium'), url('fonts/CircularStd-Medium.otf') format('otf');
+src: local('Circular Std Medium'), url('fonts/CircularStd-Medium.woff') format('woff'),
+url('fonts/CircularStd-Medium.otf') format('otf');
 }
 
 
@@ -48,8 +56,8 @@ src: local('Circular Std Medium'), url('fonts/CircularStd-Medium.otf') format('o
 font-family: 'Circular Std Medium Italic';
 font-style: normal;
 font-weight: normal;
-src: local('Circular Std Medium Italic'), url('fonts/CircularStd-MediumItalic.woff') format('woff');
-src: local('Circular Std Medium Italic'), url('fonts/CircularStd-MediumItalic.otf') format('otf');
+src: local('Circular Std Medium Italic'), url('fonts/CircularStd-MediumItalic.woff') format('woff'),
+url('fonts/CircularStd-MediumItalic.otf') format('otf');
 }
 
 
@@ -57,8 +65,8 @@ src: local('Circular Std Medium Italic'), url('fonts/CircularStd-MediumItalic.ot
 font-family: 'Circular Std Bold';
 font-style: normal;
 font-weight: normal;
-src: local('Circular Std Bold'), url('fonts/CircularStd-Bold.woff') format('woff');
-src: local('Circular Std Bold'), url('fonts/CircularStd-Bold.otf') format('otf');
+src: local('Circular Std Bold'), url('fonts/CircularStd-Bold.woff') format('woff'),
+url('fonts/CircularStd-Bold.otf') format('otf');
 }
 
 
@@ -66,8 +74,8 @@ src: local('Circular Std Bold'), url('fonts/CircularStd-Bold.otf') format('otf')
 font-family: 'Circular Std Bold Italic';
 font-style: normal;
 font-weight: normal;
-src: local('Circular Std Bold Italic'), url('fonts/CircularStd-BoldItalic.woff') format('woff');
-src: local('Circular Std Bold Italic'), url('fonts/CircularStd-BoldItalic.otf') format('otf');
+src: local('Circular Std Bold Italic'), url('fonts/CircularStd-BoldItalic.woff') format('woff'),
+url('fonts/CircularStd-BoldItalic.otf') format('otf');
 }
 
 
@@ -75,8 +83,8 @@ src: local('Circular Std Bold Italic'), url('fonts/CircularStd-BoldItalic.otf') 
 font-family: 'Circular Std Black';
 font-style: normal;
 font-weight: normal;
-src: local('Circular Std Black'), url('fonts/CircularStd-Black.woff') format('woff');
-src: local('Circular Std Black'), url('fonts/CircularStd-Black.otf') format('otf');
+src: local('Circular Std Black'), url('fonts/CircularStd-Black.woff') format('woff'),
+url('fonts/CircularStd-Black.otf') format('otf');
 }
 
 
@@ -84,8 +92,8 @@ src: local('Circular Std Black'), url('fonts/CircularStd-Black.otf') format('otf
 font-family: 'Circular Std Black Italic';
 font-style: normal;
 font-weight: normal;
-src: local('Circular Std Black Italic'), url('fonts/CircularStd-BlackItalic.woff') format('woff');
-src: local('Circular Std Black Italic'), url('fonts/CircularStd-BlackItalic.otf') format('otf');
+src: local('Circular Std Black Italic'), url('fonts/CircularStd-BlackItalic.woff') format('woff'),
+url('fonts/CircularStd-BlackItalic.otf') format('otf');
 }
 
 img{

@@ -1,0 +1,10 @@
+.home-content{
+	.intro{
+		background-image: url("/img/hockey-bg.png");
+		h1{
+			text-align: center;
+			@include font(150, 160);
+			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+		}
+	}
+}
