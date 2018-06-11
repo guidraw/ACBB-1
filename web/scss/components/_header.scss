@@ -1,0 +1,61 @@
+.navbar{
+  font-family: "Againts", sans-serif;
+  color: white;
+  @include mobile(){
+    text-align: right;
+  }
+  &.navbar-default{
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .navbar-toggle{
+    margin-top: 20px;
+  }
+  .navbar-right{
+    @media (max-width: 1200px) and (min-width: 800px){
+      width: 80%;
+      float: right;
+      margin-top: -40px; 
+    }
+  }
+  .navbar-brand>img{
+    @include mobile(){
+      max-width: 60px;
+    }
+  }
+  li{
+    @include font(20, 24);
+    &.active::after{
+      content: '';
+      background: url('/img/brush.png');
+      background-repeat: no-repeat;
+      width: 45px;
+      height: 7px;
+    }
+  }
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
+  color: white;
+  background-color: transparent;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+  background-color: #fff;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus{
+  color: #fff;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+  border: transparent;
+}
+.navbar-default .navbar-toggle{
+  border-color: transparent;
+}
+.navbar-toggle{
+  background-color: white;
+}
+.navbar-default .navbar-toggle .icon-bar{
+  background-color: $bg;
+}
+.navbar-collapse{
+  box-shadow: none;
+}

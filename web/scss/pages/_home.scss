@@ -1,0 +1,20 @@
+.home-content{
+	height: 100vh;
+	.intro{
+		height: 100%;
+		background-image: url("/img/hockey-bg.png");
+		background-position: center 0;
+		background-repeat: no-repeat;
+		background-size: 900px;
+		h1{
+			display: block;
+			text-align: center;
+			padding-top: 150px;
+			@include font(150, 160);
+			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+			@include mobile(){
+				@include font(80, 70);
+			}
+		}
+	}
+}

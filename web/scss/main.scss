@@ -1,0 +1,14 @@
+// Librairies
+@import 'libs/bootstrap';
+
+// Partials
+@import 'partials/mixins',
+		'partials/variables',
+		'partials/structure';
+
+// Pages
+@import 'pages/home',
+		'pages/faq';
+
+// Composants
+@import 'components/header';		

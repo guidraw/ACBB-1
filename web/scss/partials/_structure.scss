@@ -1,0 +1,163 @@
+body {
+  background: $bg;
+}
+
+h1{
+  font-family: 'Againts';
+  color: #fff;
+}
+
+p{
+  font-family: 'Circular Std Book';
+  color: #fff;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  @media (min-width: 1200px){
+    width: 95%;
+  }
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  @media (min-width: 1200px){
+    width: 95%;
+  }
+}
+
+@font-face {
+  font-family: 'Againts', sans-serif;
+  src: local('Againts'), url("fonts/againts.otf") format("OpenType");
+}
+
+@font-face {
+font-family: 'Circular Std Book';
+font-style: normal;
+font-weight: normal;
+src: local('Circular Std Book'), url('fonts/CircularStd-Book.woff') format('woff'), 
+url('fonts/CircularStd-Book.otf') format('otf');
+}
+
+
+@font-face {
+font-family: 'Circular Std Book Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Circular Std Book Italic'), url('fonts/CircularStd-BookItalic.woff') format('woff'),
+url('fonts/CircularStd-BookItalic.otf') format('otf');
+}
+
+
+@font-face {
+font-family: 'Circular Std Medium';
+font-style: normal;
+font-weight: normal;
+src: local('Circular Std Medium'), url('fonts/CircularStd-Medium.woff') format('woff'),
+url('fonts/CircularStd-Medium.otf') format('otf');
+}
+
+
+@font-face {
+font-family: 'Circular Std Medium Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Circular Std Medium Italic'), url('fonts/CircularStd-MediumItalic.woff') format('woff'),
+url('fonts/CircularStd-MediumItalic.otf') format('otf');
+}
+
+
+@font-face {
+font-family: 'Circular Std Bold';
+font-style: normal;
+font-weight: normal;
+src: local('Circular Std Bold'), url('fonts/CircularStd-Bold.woff') format('woff'),
+url('fonts/CircularStd-Bold.otf') format('otf');
+}
+
+
+@font-face {
+font-family: 'Circular Std Bold Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Circular Std Bold Italic'), url('fonts/CircularStd-BoldItalic.woff') format('woff'),
+url('fonts/CircularStd-BoldItalic.otf') format('otf');
+}
+
+
+@font-face {
+font-family: 'Circular Std Black';
+font-style: normal;
+font-weight: normal;
+src: local('Circular Std Black'), url('fonts/CircularStd-Black.woff') format('woff'),
+url('fonts/CircularStd-Black.otf') format('otf');
+}
+
+
+@font-face {
+font-family: 'Circular Std Black Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Circular Std Black Italic'), url('fonts/CircularStd-BlackItalic.woff') format('woff'),
+url('fonts/CircularStd-BlackItalic.otf') format('otf');
+}
+
+img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-default{
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+  font-size: 11px;
+  color: #070707;
+  background: #bfbfbf;
+  border: 1px solid;
+  border-top-color: #dfdfdf;
+  border-left-color: #dfdfdf;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  box-shadow: 1px 1px 0 0 #000;
+  text-align: center;
+  outline: none;
+  padding: 4px;
+
+  &:active{
+    box-shadow: 0 0 0 0 #000 inset;
+    border-top-color: #000;
+    border-left-color: #000;
+    border-right-color: #000;
+    border-bottom-color: #000;
+  }
+}
+
+:disabled{
+  color: #818181;
+  text-shadow: 1px 1px #fff;
+}
+
+#mask{
+  position: absolute;
+  background-color: black;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1002;
+}
+
+.hidden{
+  opacity: 0;
+  position: absolute;
+  left: 0;
+}
+
+.display-none{
+  display: none !important;
+}
