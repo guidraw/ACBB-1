@@ -1,0 +1,42 @@
+@mixin desktop(){
+  @media all and (min-width: 1025px){
+    @content;
+  }
+}
+
+@mixin tablet(){
+  @media all and (min-width: 768px) and (max-width: 1024px){
+    @content;
+  }
+}
+
+@mixin mobile(){
+  @media all and (max-width: 767px){
+    @content;
+  }
+}
+
+@mixin tablet-up(){
+  @media all and (min-width: 768px){
+    @content;
+  }
+}
+
+@mixin tablet-down(){
+  @media all and (max-width: 1024px){
+    @content;
+  }
+}
+
+@mixin font($sizeValue: 13, $heightValue: 16){
+  font-size: $sizeValue + px; //Ancien navigateur
+  font-size: (0.1 * $sizeValue) + rem;
+  line-height: $heightValue + px; //Ancien navigateur
+  line-height: (0.1 * $heightValue) + rem;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;
+}
