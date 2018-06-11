@@ -1,0 +1,15 @@
+admin_homepage:
+    path:     /
+    defaults: { _controller: AdminBundle:Default:index }
+
+admin_addteam:
+    path:     /addteam
+    defaults: { _controller: AdminBundle:Team:addteam }
+
+admin_addmatch:
+    path:     /addmatch
+    defaults: { _controller: AdminBundle:Match:addmatch }
+
+admin_adduser:
+    path:     /adduser
+    defaults: { _controller: AdminBundle:User:adduser }

@@ -154,6 +154,10 @@ class Team
         return $this->club;
     }
 
+    public function getUsers(){
+        return $this->users;
+    }
+
     /**
      * @param Club $club
      */
@@ -176,6 +180,22 @@ class Team
     public function setStatus($status)
     {
         $this->status = $status;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMedias(): \Doctrine\Common\Collections\Collection
+    {
+        return $this->medias;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $medias
+     */
+    public function setMedias(\Doctrine\Common\Collections\Collection $medias)
+    {
+        $this->medias = $medias;
     }
 
     /**
@@ -225,6 +245,7 @@ class Team
     {
         $this->medias->removeElement($media);
     }
+
 
 }
 
