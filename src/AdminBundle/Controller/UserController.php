@@ -34,6 +34,13 @@ class UserController extends Controller
             ->getForm()
         ;
 
+        /*        if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($team);
+                $em->flush();
+            return $this->redirectToRoute('admin_homepage');
+        }*/
+
         return $this->render('AdminBundle:Default:adduser.html.twig', array(
             'form' => $form->createView(),
         ));

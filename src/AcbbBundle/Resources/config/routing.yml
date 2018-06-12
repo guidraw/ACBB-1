@@ -6,6 +6,10 @@ acbb_club:
     resource: "@AcbbBundle/Resources/config/routing_club.yml"
     prefix:   /club
 
+#acbb_match:
+#    path:     /match
+#    defaults: { _controller: AcbbBundle:Match:index }
+
 acbb_news:
     path:    /actualites
     defaults: { _controller: AcbbBundle:News:index }

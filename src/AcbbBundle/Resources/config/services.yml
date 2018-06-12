@@ -3,5 +3,5 @@ services:
 #        class: AcbbBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
 
-#  accb.team:
-#    class:AcbbBundle\Entity\Team
+#  accb.match:
+#    class:AcbbBundle\Entity\Match

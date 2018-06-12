@@ -6,9 +6,9 @@ use AcbbBundle\Entity\Team;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class TeamController extends Controller
 {
@@ -27,6 +27,17 @@ class TeamController extends Controller
             ->add('valider',      SubmitType::class)
             ->getForm()
         ;
+
+
+/*        if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($team);
+                $em->flush();
+            return $this->redirectToRoute('admin_homepage');
+        }*/
+        if($request->isMethod('POST')){
+            return new Response("data: ".$request);
+        }
 
         return $this->render('AdminBundle:Default:addteam.html.twig', array(
             'form' => $form->createView(),

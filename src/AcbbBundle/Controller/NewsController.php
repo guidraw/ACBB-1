@@ -2,13 +2,19 @@
 
 namespace AcbbBundle\Controller;
 
+use AcbbBundle\Entity\Match;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class NewsController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AcbbBundle:Default:news.html.twig');
+        //    $match1 = $this->container->get('accb.match');
+        $match = new Match();
+        return $this->render('AcbbBundle:Default:news.html.twig', array(
+            'match'=> $match,
+        ));
     }
 
     public function viewAction($id)

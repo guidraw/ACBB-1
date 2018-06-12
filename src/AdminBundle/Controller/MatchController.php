@@ -28,6 +28,13 @@ class MatchController extends Controller
             ->add('valider',      SubmitType::class)
         ;
 
+        /*        if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($team);
+                $em->flush();
+            return $this->redirectToRoute('admin_homepage');
+        }*/
+
         $form = $formBuilder->getForm();
 
         return $this->render('AdminBundle:Default:addmatch.html.twig', array(

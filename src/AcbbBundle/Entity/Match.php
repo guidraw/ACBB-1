@@ -116,6 +116,12 @@ class Match
     public function __construct()
     {
         $this->medias = new ArrayCollection();
+        $this->date = new \DateTime();
+        $this->id = 1;
+        $this->address = "paris 16";
+        $this->team1 = "te 1";
+        $this->team2 = "te 2";
+        $this->season = "mars";
     }
 
     /**
