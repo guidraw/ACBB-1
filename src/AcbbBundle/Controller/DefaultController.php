@@ -2,13 +2,17 @@
 
 namespace AcbbBundle\Controller;
 
+use AcbbBundle\Entity\Match;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AcbbBundle:Default:index.html.twig');
+        $match = new Match();
+        return $this->render('AcbbBundle:Default:index.html.twig', array(
+            'match'=> $match,
+        ));
     }
 
     public function schoolAction()
