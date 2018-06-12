@@ -8,7 +8,10 @@
 
 // Pages
 @import 'pages/home',
-		'pages/faq';
+		'pages/faq',
+		'pages/contact';
 
 // Composants
-@import 'components/header';		
+@import 'components/header',
+		'components/last-match',		
+		'components/list-matchs';		

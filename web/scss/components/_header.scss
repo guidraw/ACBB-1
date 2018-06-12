@@ -8,6 +8,11 @@
     background-color: transparent;
     border-color: transparent;
   }
+  .container{
+    @media (min-width: 1200px){
+      width: 95%;
+    }
+  }
   .navbar-toggle{
     margin-top: 20px;
   }

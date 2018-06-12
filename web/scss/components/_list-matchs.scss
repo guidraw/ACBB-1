@@ -1,0 +1,57 @@
+.list-matchs{
+	margin-top: 100px;
+	h3{
+		@include font(50, 54);
+	}
+	.row{
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.col-match{
+		position: relative;
+		margin-top: 45px;
+		background: white;
+		border-radius: 6px;
+		box-shadow: 6px 2px 20px 0 rgba(0, 0, 0, 0.06);
+		height: 200px;
+
+		.date{
+			position: absolute;
+			top: 20px;
+			left: -50px;
+			@include mobile(){
+				position: inherit;
+				width: 110px;
+				margin-bottom: 20px;
+				left: calc(50% - 55px);
+			}
+			border-radius: 16px;
+  			color: #fff;
+  			padding: 5px 20px;
+  			text-align: center;
+  			&.past{
+	  			background-color: #2bb2ac;
+  			}
+  			&.upcoming{
+  				background-color: $salmon;
+  			}
+		}
+		.match-category{
+			display: block;
+			font-family: $circular;
+			margin-top: 22px;
+			text-align: center;
+			color: $bg;
+			@include font(24, 28);
+		}
+		.match-teams{
+			.VS{
+				font-family: "Againts", sans-serif;
+				color: black;
+				@include font(50, 54);
+				text-align: center;
+				margin-top: 50px;
+			}
+		}
+	}
+}
