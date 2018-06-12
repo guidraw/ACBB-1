@@ -1,2 +1,40 @@
-Hello World!
-page contact
+{% extends '::base.html.twig' %}
+{% block title %}FAQ - ACBB{% endblock %}
+
+{% block body %}
+		<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div class="container-contact100">
+			<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					<h2>Contactez-nous</h2>
+				</span>
+
+				<label class="label-input100" for="email">Votre email :</label>
+				<div class="wrap-input100 validate-input">
+					<input id="email" class="input100" type="text" name="email" placeholder="Ex: john.doe@gmail.com">
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="message">Votre message :</label>
+				<div class="wrap-input100 validate-input">
+					<textarea id="message" class="input100" name="message" placeholder="Merci de mettre votre message ici...."></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+							Envoyer votre message
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+{% endblock %}

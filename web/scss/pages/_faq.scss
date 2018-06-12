@@ -2,11 +2,11 @@
 	margin-top: 30px;
 	font-size: 18px;
 
-	h2, h3{
-		font-family: 'Circular Std Book';
+	h2, h3, a{
+		font-family: $circular;
 		color: #fff;
 	}
 	a{
-		color: white;
+		@include font(16, 20);
 	}
 }

@@ -1,0 +1,49 @@
+.last-match{
+	h3{
+		font-family: $againts;
+		color: white;
+		@include font(50, 54);
+	}
+	p{
+		display: block;
+		margin-top: 50px;
+	}
+	.last-match_img{
+		img{
+			border: solid 16px #ffffff;
+			@include mobile{
+				margin: 0 auto;
+			}
+		}
+	}
+	.last-match_content{
+		padding-left: 80px;
+		@include mobile(){
+			padding-left: 15px;
+		}
+	}
+	.img-border{
+		position: relative;
+		&::before, &::after{
+			content: '';
+		    position: absolute;
+		    background: url("/img/big-brush.png");
+		    background-repeat: no-repeat;
+		    width: 80px;
+		    height: 110px;
+			@include mobile(){
+				display: none;
+			}
+		}
+		&::before{
+		    right: -30px;
+		    top: -40px;
+	    	transform: rotate(-5deg);
+		}
+		&::after{
+		    left: -30px;
+		    bottom: -40px;
+	    	transform: rotate(175deg);
+		}
+	}
+}
