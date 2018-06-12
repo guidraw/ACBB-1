@@ -45,6 +45,24 @@
 			@include font(24, 28);
 		}
 		.match-teams{
+			position: relative;
+			.acbb-team, .other-team{
+				position: absolute;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+			.acbb-team{
+				height: 105px;
+    			width: 110px;
+    			left: 0;
+    			top: -50px;
+			}
+			.other-team{
+				width: 140px;
+			    height: 135px;
+			    right: 0;
+			    top: -80px;
+			}
 			.VS{
 				font-family: "Againts", sans-serif;
 				color: black;
