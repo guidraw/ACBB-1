@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Match
  *
- * @ORM\Table(name="match", indexes={@ORM\Index(name="fk_match_season1_idx", columns={"season_id"}), @ORM\Index(name="fk_match_category1_idx", columns={"category_id"}), @ORM\Index(name="fk_match_status1_idx", columns={"status_id"}), @ORM\Index(name="fk_match_team1_idx", columns={"team1"}), @ORM\Index(name="fk_match_team2_idx", columns={"team2"}), @ORM\Index(name="fk_match_address1_idx", columns={"address_id"})})
+ * @ORM\Table(name="matchs", indexes={@ORM\Index(name="fk_match_season1_idx", columns={"season_id"}), @ORM\Index
+ * (name="fk_match_category1_idx", columns={"category_id"}), @ORM\Index(name="fk_match_status1_idx", columns={"status_id"}), @ORM\Index(name="fk_match_team1_idx", columns={"team1"}), @ORM\Index(name="fk_match_team2_idx", columns={"team2"}), @ORM\Index(name="fk_match_address1_idx", columns={"address_id"})})
  * @ORM\Entity
  */
 class Match
@@ -106,7 +107,7 @@ class Match
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Media", mappedBy="match")
+     * @ORM\ManyToMany(targetEntity="Media", mappedBy="matches")
      */
     private $medias;
 
@@ -116,13 +117,13 @@ class Match
     public function __construct()
     {
         $this->medias = new ArrayCollection();
-        $this->date = "12/07/2018";
-        $this->id = 1;
-        $this->address = "paris 16";
-        $this->team1 = "te FILA";
-        $this->team2 = "te LAFI";
-        $this->season = "mars";
-        $this->category = "Championnat";
+//        $this->date = "12/07/2018";
+//        $this->id = 1;
+//        $this->address = "paris 16";
+//        $this->team1 = "te FILA";
+//        $this->team2 = "te LAFI";
+//        $this->season = "mars";
+//        $this->category = "Championnat";
     }
 
     /**

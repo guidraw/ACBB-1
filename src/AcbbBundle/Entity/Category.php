@@ -32,24 +32,22 @@ class Category
     /**
      * @var \AcbbBundle\Entity\Status
      *
-     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Status")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="status_id", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="Status", inversedBy="category")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     private $status;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Album", mappedBy="category")
+     * @ORM\ManyToMany(targetEntity="Album", mappedBy="categories")
      */
     private $albums;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\News", mappedBy="category")
+     * @ORM\ManyToMany(targetEntity="News", mappedBy="categories")
      */
     private $newses;
 

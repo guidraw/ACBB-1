@@ -48,9 +48,7 @@ class User extends BaseUser
      * @var \AcbbBundle\Entity\Address
      *
      * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Address")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="address_id", referencedColumnName="id")
-     * })
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
      */
     private $address;
 
@@ -58,53 +56,45 @@ class User extends BaseUser
      * @var \AcbbBundle\Entity\Media
      *
      * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Media")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="photo_id", referencedColumnName="id")
-     * })
+     * @ORM\JoinColumn(name="photo_id", referencedColumnName="id")
      */
     private $photo;
 
     /**
      * @var \AcbbBundle\Entity\Nationality
      *
-     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Nationality")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="nationality_id", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="Nationality", inversedBy="users")
+     * @ORM\JoinColumn(name="nationality_id", referencedColumnName="id", nullable=true)
      */
     private $nationality;
 
     /**
      * @var \AcbbBundle\Entity\Status
      *
-     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Status")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="status_id", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="Status")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     private $status;
 
     /**
      * @var \AcbbBundle\Entity\Status
      *
-     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Status")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="family_situation", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="Status", inversedBy="familySituations")
+     * @ORM\JoinColumn(name="family_situation", referencedColumnName="id")
      */
     private $familySituation;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Team", mappedBy="user")
+     * @ORM\ManyToMany(targetEntity="Team", mappedBy="users")
      */
     private $team;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\User", inversedBy="user")
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="tutors")
      * @ORM\JoinTable(name="user_user",
      *   joinColumns={
      *     @ORM\JoinColumn(name="user_id", referencedColumnName="id")
@@ -117,6 +107,12 @@ class User extends BaseUser
     private $tutor;
 
     /**
+     * Many Users have Many Users.
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="tutor")
+     */
+    private $tutors;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -124,6 +120,7 @@ class User extends BaseUser
         parent::__construct();
         $this->team = new ArrayCollection();
         $this->tutor = new ArrayCollection();
+        $this->tutors = new ArrayCollection();
     }
 
     /**

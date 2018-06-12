@@ -62,7 +62,7 @@ class Team
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\User", inversedBy="team")
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="team")
      * @ORM\JoinTable(name="belong",
      *   joinColumns={
      *     @ORM\JoinColumn(name="team_id", referencedColumnName="id")
@@ -77,7 +77,7 @@ class Team
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Media", inversedBy="team")
+     * @ORM\ManyToMany(targetEntity="Media", inversedBy="teams")
      * @ORM\JoinTable(name="team_has_media",
      *   joinColumns={
      *     @ORM\JoinColumn(name="team_id", referencedColumnName="id")

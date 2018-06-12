@@ -56,7 +56,7 @@ class Media
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Album", inversedBy="media")
+     * @ORM\ManyToMany(targetEntity="Album", inversedBy="medias")
      * @ORM\JoinTable(name="media_album",
      *   joinColumns={
      *     @ORM\JoinColumn(name="media_id", referencedColumnName="id")
@@ -71,7 +71,7 @@ class Media
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Club", inversedBy="media")
+     * @ORM\ManyToMany(targetEntity="Club", inversedBy="medias")
      * @ORM\JoinTable(name="media_club",
      *   joinColumns={
      *     @ORM\JoinColumn(name="media_id", referencedColumnName="id")
@@ -86,7 +86,7 @@ class Media
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Match", inversedBy="media")
+     * @ORM\ManyToMany(targetEntity="Match", inversedBy="medias")
      * @ORM\JoinTable(name="media_match",
      *   joinColumns={
      *     @ORM\JoinColumn(name="media_id", referencedColumnName="id")
@@ -101,7 +101,7 @@ class Media
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Team", mappedBy="media")
+     * @ORM\ManyToMany(targetEntity="Team", mappedBy="medias")
      */
     private $teams;
 

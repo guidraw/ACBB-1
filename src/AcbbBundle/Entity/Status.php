@@ -3,11 +3,12 @@
 namespace AcbbBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Status
  *
- * @ORM\Table(name="status", indexes={@ORM\Index(name="fk_status_category1_idx", columns={"category_id"})})
+ * @ORM\Table(name="status")
  * @ORM\Entity
  */
 class Status
@@ -31,12 +32,27 @@ class Status
     /**
      * @var \AcbbBundle\Entity\Category
      *
-     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Category")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     * })
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="status")
      */
     private $category;
+
+    /**
+     * One Customer has One Cart.
+     * @ORM\OneToOne(targetEntity="News", mappedBy="status")
+     */
+    private $news;
+
+    /**
+     * @var \AcbbBundle\Entity\User
+     *
+     * @ORM\OneToMany(targetEntity="User", mappedBy="familySituation")
+     */
+    private $familySituations;
+
+    public function __construct() {
+        $this->category = new ArrayCollection();
+        $this->familySituations = new ArrayCollection();
+    }
 
     /**
      * @return string

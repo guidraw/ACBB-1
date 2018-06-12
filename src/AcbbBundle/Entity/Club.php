@@ -52,7 +52,7 @@ class Club
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Media", mappedBy="club")
+     * @ORM\ManyToMany(targetEntity="Media", mappedBy="clubs")
      */
     private $medias;
 

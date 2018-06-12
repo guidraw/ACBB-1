@@ -67,12 +67,8 @@ class News
     /**
      * @var \AcbbBundle\Entity\Status
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="AcbbBundle\Entity\Status")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="status_id", referencedColumnName="id")
-     * })
+     * @ORM\OneToOne(targetEntity="Status", inversedBy="news")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     private $status;
 
@@ -89,7 +85,7 @@ class News
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Category", inversedBy="news")
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="newses")
      * @ORM\JoinTable(name="news_category",
      *   joinColumns={
      *     @ORM\JoinColumn(name="news_id", referencedColumnName="id")

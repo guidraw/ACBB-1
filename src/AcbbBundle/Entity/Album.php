@@ -80,7 +80,7 @@ class Album
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Category", inversedBy="album")
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="albums")
      * @ORM\JoinTable(name="album_category",
      *   joinColumns={
      *     @ORM\JoinColumn(name="album_id", referencedColumnName="id")
@@ -95,7 +95,7 @@ class Album
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AcbbBundle\Entity\Media", mappedBy="album")
+     * @ORM\ManyToMany(targetEntity="Media", mappedBy="albums")
      */
     private $medias;
 

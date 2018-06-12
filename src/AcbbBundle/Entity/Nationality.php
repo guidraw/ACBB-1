@@ -3,6 +3,7 @@
 namespace AcbbBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Nationality
@@ -27,6 +28,16 @@ class Nationality
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * One Product has Many Features.
+     * @Orm\OneToMany(targetEntity="User", mappedBy="nationality")
+     */
+    private $users;
+
+    public function __construct() {
+        $this->users = new ArrayCollection();
+    }
 
     /**
      * @return string
