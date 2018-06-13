@@ -1,2 +1,122 @@
-Hello World!
-page media
+{% extends '::base.html.twig' %}
+{% block title %}Médias - ACBB{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="medias-content">
+		<div class="header-media">
+			<h2>Médias</h2>
+			<div class="new-photos hidden-xs">
+				Nouvelles photos disponibles
+			</div>
+		</div>
+		<div class="filter-media">
+			<div class="filter-left">
+				<a class="active" href="#">Tous les médias</a>
+				<a href="#">Photos</a>
+				<a href="#">Vidéos</a>
+				<a href="#">Presse</a>
+			</div>
+			<div class="filter-right">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<span class="photo-season">
+					Saison 2017-18
+				</span>
+				<div class="t-center">
+					<div class="img-border">
+						<img src="/img/tmp/img2.png" alt="">
+					</div>
+					<p class="legend-photo">Championnat U11A - Rouen vs ACBB</p>
+					<a href="#" class="btn">Voir cet album</a>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<span class="photo-season">
+					Saison 2017-18
+				</span>
+				<div class="t-center">
+					<div class="img-border">
+						<img src="/img/tmp/img3.png" alt="">
+					</div>
+					<p class="legend-photo">Plateau U7 - D3 Fontenay vs ACBB</p>
+					<a href="#" class="btn">Voir cet album</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<span class="photo-season">
+					Saison 2017-18
+				</span>
+				<div class="t-center">
+					<div class="img-border">
+						<img src="/img/tmp/img2.png" alt="">
+					</div>
+					<p class="legend-photo">Championnat U11A - Rouen vs ACBB</p>
+					<a href="#" class="btn">Voir cet album</a>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<span class="photo-season">
+					Saison 2017-18
+				</span>
+				<div class="t-center">
+					<div class="img-border">
+						<img src="/img/tmp/img3.png" alt="">
+					</div>
+					<p class="legend-photo">Plateau U7 - D3 Fontenay vs ACBB</p>
+					<a href="#" class="btn">Voir cet album</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<span class="photo-season">
+					Saison 2017-18
+				</span>
+				<div class="t-center">
+					<div class="img-border">
+						<img src="/img/tmp/img2.png" alt="">
+					</div>
+					<p class="legend-photo">Championnat U11A - Rouen vs ACBB</p>
+					<a href="#" class="btn">Voir cet album</a>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<span class="photo-season">
+					Saison 2017-18
+				</span>
+				<div class="t-center">
+					<div class="img-border">
+						<img src="/img/tmp/img3.png" alt="">
+					</div>
+					<p class="legend-photo">Plateau U7 - D3 Fontenay vs ACBB</p>
+					<a href="#" class="btn">Voir cet album</a>
+				</div>
+			</div>
+		</div>
+		<nav class="nav-pagination" aria-label="Navigation">
+		  <ul class="pagination">
+		    <li>
+		      <a href="#" aria-label="Previous">
+		        <span aria-hidden="true">«</span>
+		      </a>
+		    </li>
+		    <li class="active"><a href="#">1</a></li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">5</a></li>
+		    <li>
+		      <a href="#" aria-label="Next">
+		        <span aria-hidden="true">»</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+	</div>
+</div>
+{% endblock %}

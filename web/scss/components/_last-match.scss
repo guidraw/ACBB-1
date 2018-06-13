@@ -20,28 +20,28 @@
 			padding-left: 15px;
 		}
 	}
-	.img-border{
-		position: relative;
-		&::before, &::after{
-			content: '';
-		    position: absolute;
-		    background: url("/img/big-brush.png");
-		    background-repeat: no-repeat;
-		    width: 80px;
-		    height: 110px;
-			@include mobile(){
-				display: none;
-			}
+}
+.img-border{
+	position: relative;
+	&::before, &::after{
+		content: '';
+	    position: absolute;
+	    background: url("/img/big-brush.png");
+	    background-repeat: no-repeat;
+	    width: 80px;
+	    height: 110px;
+		@include mobile(){
+			display: none;
 		}
-		&::before{
-		    right: -30px;
-		    top: -40px;
-	    	transform: rotate(-5deg);
-		}
-		&::after{
-		    left: -30px;
-		    bottom: -40px;
-	    	transform: rotate(175deg);
-		}
+	}
+	&::before{
+	    right: -30px;
+	    top: -40px;
+    	transform: rotate(-5deg);
+	}
+	&::after{
+	    left: -30px;
+	    bottom: -40px;
+    	transform: rotate(175deg);
 	}
 }

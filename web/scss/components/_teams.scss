@@ -32,7 +32,9 @@
     		width: 98%;
     	}
     	.col-sm-6{
-    		width: 45%;
+    		@include tablet-up(){
+    			width: 45%;
+    		}
     	}
     	.col-match:nth-child(even){
     		@include tablet-up(){

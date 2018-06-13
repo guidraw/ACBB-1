@@ -1,0 +1,77 @@
+.medias-content{
+	font-family: $circular;
+	color: white;
+	a{
+		color: white;
+		text-decoration: none;
+	}
+	.new-photos{
+		text-transform: uppercase;
+		color: white;
+		float: right;
+		border: 1px solid green;
+		padding: 10px;
+		margin-top: -20px;
+	}
+	.filter-media{
+		display: block;
+		margin-top: 80px;
+		text-transform: uppercase;
+		overflow: hidden;
+		.filter-left{
+			float: left;
+			a{
+				display: inline-block;
+				margin-right: 10px;
+				&.active{
+					font-weight: bold;
+				}
+				&::after{
+					content: "/";
+					margin-left: 10px;
+				}
+				&:last-child()::after{
+					content: "";
+				}
+			}
+		}
+		.filter-right{
+			float: right;
+		}
+	}
+	.row{
+		margin-top: 50px;
+		img{
+			border: solid 16px #ffffff;
+		}
+		.col-sm-6{
+			@include mobile(){
+				margin-top: 20px;
+			}
+		}
+		.t-center{
+			text-align: center;
+		}
+		.photo-season{
+			display: block;
+			opacity: 0.8;
+			margin-bottom: 10px;
+		}
+		.legend-photo{
+			display: block;
+			margin-top: 15px;
+			font-weight: bold;
+			@include font(16, 20);
+		}
+		.btn{
+			border: 1px solid $salmon;
+			&:hover{
+				color: white;
+				background: $salmon;
+			}
+		}
+	}
+	nav{
+		margin-top: 25px;
+	}
+}
