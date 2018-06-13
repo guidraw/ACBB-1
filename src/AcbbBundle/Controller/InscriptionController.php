@@ -14,32 +14,32 @@ class InscriptionController extends Controller
 {
     public function indexAction(Request $request)
     {
-       /* return $this->render('AcbbBundle:Default:inscription.html.twig');*/
-
-        $user = new User();
-
-        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $user);
-
-        $formBuilder
-            ->add('username',      DateType::class)
-            ->add('team1',     TextType::class)
-            ->add('team2',     TextType::class)
-            ->add('address',     TextType::class)
-            ->add('valider',      SubmitType::class)
-        ;
-
-        /*        if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($team);
-                $em->flush();
-            return $this->redirectToRoute('admin_homepage');
-        }*/
-
-        $form = $formBuilder->getForm();
-
-        return $this->render('AdminBundle:Default:addmatch.html.twig', array(
-            'form' => $form->createView(),
-        ));
+       return $this->render('AcbbBundle:Default:inscription.html.twig');
+//
+//        $user = new User();
+//
+//        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $user);
+//
+//        $formBuilder
+//            ->add('username',      DateType::class)
+//            ->add('team1',     TextType::class)
+//            ->add('team2',     TextType::class)
+//            ->add('address',     TextType::class)
+//            ->add('valider',      SubmitType::class)
+//        ;
+//
+//        /*        if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+//                $em = $this->getDoctrine()->getManager();
+//                $em->persist($team);
+//                $em->flush();
+//            return $this->redirectToRoute('admin_homepage');
+//        }*/
+//
+//        $form = $formBuilder->getForm();
+//
+//        return $this->render('AdminBundle:Default:addmatch.html.twig', array(
+//            'form' => $form->createView(),
+//        ));
     }
 
     public function documentAction()

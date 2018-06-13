@@ -2,3 +2,13 @@ services:
 #    admin.example:
 #        class: AdminBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+#admin.image_uploader:
+#        class: AdminBundle\ImageUpload
+#        arguments: ['%images_directory%']
+#admin.doctrine_image_listener:
+#        class: AdminBundle\EventListener\ImageUploadListener
+#        arguments: ['@resto.image_uploader']
+#        tags:
+#            - { name: doctrine.event_listener, event: prePersist }
+#            - { name: doctrine.event_listener, event: preUpdate }

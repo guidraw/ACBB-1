@@ -10,3 +10,4 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: ac94cab8facca697a5ffcea4f4cc324ea131169b
+    images_directory: '%kernel.root_dir%/../web/uploads/images'
