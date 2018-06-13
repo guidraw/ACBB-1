@@ -87,7 +87,7 @@ class User extends BaseUser
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Team", mappedBy="users")
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="users")
      */
     private $team;
 
@@ -118,7 +118,6 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->team = new ArrayCollection();
         $this->tutor = new ArrayCollection();
         $this->tutors = new ArrayCollection();
     }

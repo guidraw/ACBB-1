@@ -62,7 +62,7 @@ class Team
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="User", inversedBy="team")
+     * @ORM\OneToMany(targetEntity="User", mappedBy="team")
      * @ORM\JoinTable(name="belong",
      *   joinColumns={
      *     @ORM\JoinColumn(name="team_id", referencedColumnName="id")

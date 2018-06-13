@@ -7,7 +7,7 @@ use Doctrine\ORM\Event\PreUpdateEventArgs;
 use AcbbBundle\Entity\User;
 use AdminBundle\ImageUpload;
 
-class ImageUploadListener
+class UploadImageListener
 {
     private $uploader;
 
@@ -30,16 +30,16 @@ class ImageUploadListener
         $this->uploadFile($entity);
     }
 
-    private function uploadFile($entity)
+    public function uploadFile($entity)
     {
-        // upload only works for Product entities
+
         if (!$entity instanceof User) {
             return;
         }
 
         $file = $entity->getPhoto();
 
-        // only upload new files
+
         if (!$file instanceof UploadedFile) {
             return;
         }

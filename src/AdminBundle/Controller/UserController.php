@@ -2,19 +2,22 @@
 
 namespace AdminBundle\Controller;
 
+use AcbbBundle\Entity\Country;
 use AcbbBundle\Entity\User;
 use AcbbBundle\Entity\Address;
 use AcbbBundle\Entity\Media;
+use AcbbBundle\Entity\Status;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
@@ -30,6 +33,7 @@ class UserController extends Controller
         $formBuilder
             ->add('username',     TextType::class)
             ->add('email',     EmailType::class)
+            ->add('password',     PasswordType::class)
             ->add('photo',FileType::class)
             ->add('status',     EntityType::class, array(
                 'class' => 'AcbbBundle:Status',
@@ -40,7 +44,7 @@ class UserController extends Controller
             ->add('jobPhone',     TextType::class)
             ->add('number',     TextType::class)
             ->add('street',     TextType::class)
-            ->add('zip_code',     TextType::class)
+            ->add('zipCode',     TextType::class)
             ->add('city',     TextType::class)
             ->add('nationality',      EntityType::class, array(
                 'class' => 'AcbbBundle:Nationality',
@@ -64,27 +68,32 @@ class UserController extends Controller
         $form = $formBuilder->getForm();
 
         if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+            $file = $form['photo']->getData();
 
-//            $file = $form['photo']->getData();
-//            $extension = $file->guessExtension();
-//            if (!$extension) {
-//                $extension = 'bin';
-//            }
-//
-//            $file->move('/web', rand(1, 99999).'.'.$extension);
+            $em = $this->getDoctrine()->getManager();
 
-            $dir = '%kernel.project_dir/web/';
+            //upload fichier en ligne et BD
+            $media = $this->fileAction($em,$file,$media);
+            //insérer l'adresse
+            $address = $this->addressAction($em,$address,$form);
 
-//            $em = $this->getDoctrine()->getManager();
-////            $media->setStatus(2);
-////            $media->setLink('/web');
-////            $media->setDate(new \DateTime());
-////            $media->setName('user');
-//            $em->persist($user);
-//
-////            $em->persist($media);
-//            $em->flush();
-            return $this->redirectToRoute('admin_homepage',$dir);
+            $user->setAddress($address);
+            $user->setPhoto($media);
+            $user->setEmail($form['email']->getData());
+            $user->setPlaceBirth($form['placeBirth']->getData());
+            $user->setPassword($form['password']->getData());
+            $user->setUsername($form['username']->getData());
+            $user->setJob($form['job']->getData());
+            $user->setJobPhone($form['jobPhone']->getData());
+            $user->setNationality($form['nationality']->getData());
+            $user->setFamilySituation($form['familySituation']->getData());
+            $user->setStatus($form['status']->getData());
+            $user->setTeam($form['team']->getData());
+
+            $em->persist($user);
+            $em->flush();
+
+            return new Response(json_encode($file));
         }
 
         return $this->render('AdminBundle:Default:adduser.html.twig', array(
@@ -92,4 +101,38 @@ class UserController extends Controller
         ));
     }
 
+    //insérer dans BD
+    public function fileAction($em,$file,$media){
+        $upload = $this->container->get('admin.image_uploader')->upload($file);
+
+
+        $status = $em->getRepository(Status::class)->findOneById(2);
+
+        $media->setStatus($status);
+        $media->setLink($upload['path']);
+        $media->setName($upload['fileName']);
+        $media->setDate(new \DateTime());
+        $em->persist($media);
+        $em->flush();
+        return $media;
+    }
+
+    public function addressAction($em,$address,$form){
+        $country = $em->getRepository(Country::class)->findOneById(1);
+
+        $address->setNumber($form['number']->getData());
+        $address->setStreet($form['street']->getData());
+        $address->setZipCode($form['zipCode']->getData());
+        $address->setCity($form['city']->getData());
+        $address->setCountry($country);
+
+        $em->persist($address);
+        $em->flush();
+        return $address;
+    }
+
 }
+
+
+
+

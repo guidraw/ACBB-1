@@ -18,7 +18,10 @@ class ImageUpload
 
         $file->move($this->getTargetDir(), $fileName);
 
-        return $fileName;
+        return array(
+            'path' => $this->getTargetDir(),
+            'fileName' => $fileName
+        );
     }
 
     public function getTargetDir()
