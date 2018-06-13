@@ -6,9 +6,3 @@ services:
     admin.image_uploader:
             class: AdminBundle\ImageUpload
             arguments: ['%images_directory%']
-    admin.doctrine_image_listener:
-            class: AdminBundle\EventListener\UploadImageListener
-            arguments: ['@admin.image_uploader']
-            tags:
-                - { name: doctrine.event_listener, event: prePersist }
-                - { name: doctrine.event_listener, event: preUpdate }

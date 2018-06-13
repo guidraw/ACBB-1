@@ -73,12 +73,12 @@ class UserController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             //upload fichier en ligne et BD
-            $media = $this->fileAction($em,$file,$media);
+            $photo = $this->fileAction($em,$file,$media);
             //insérer l'adresse
-            $address = $this->addressAction($em,$address,$form);
+            $place = $this->addressAction($em,$address,$form);
 
-            $user->setAddress($address);
-            $user->setPhoto($media);
+            $user->setAddress($place);
+            $user->setPhoto($photo);
             $user->setEmail($form['email']->getData());
             $user->setPlaceBirth($form['placeBirth']->getData());
             $user->setPassword($form['password']->getData());

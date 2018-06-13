@@ -13,7 +13,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class TeamController extends Controller
 {
@@ -25,7 +24,7 @@ class TeamController extends Controller
         $media = new Media();
 
         $form = $this->get('form.factory')->createBuilder(FormType::class, array($team,$user,$media))
-            ->add('name',     TextType::class)
+            ->add('name',     TextType::class, array('label' => 'Nom de l\'équipe'))
             ->add('category',     EntityType::class, array(
                 'class' => 'AcbbBundle:Category',
                 'choice_label'  =>  'name',
@@ -42,29 +41,53 @@ class TeamController extends Controller
                         ->where('s.id =2');
                 },
             ))
-            ->add('medias',     EntityType::class, array(
-                'class' => 'AcbbBundle:Media',
-                'choice_label'  =>  'name',
-            ))
-            ->add('username',   TextType::class,array('label' => 'nom joueurs'))
-            ->add('photo',   FileType::class)
+            ->add('medias',     FileType::class, array('label' => 'photo de l\'équipe'))
+//            ->add('username',   TextType::class,array('label' => 'nom joueurs'))
+//            ->add('photo',   FileType::class, array('label' => 'photo joueur'))
             ->add('valider',      SubmitType::class)
             ->getForm()
         ;
 
         if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($team);
-                $em->flush();
-            return $this->redirectToRoute('admin_homepage');
+            $em = $this->getDoctrine()->getManager();
+
+            $file1 = $file = $form['medias']->getData();
+//            $file2 = $file = $form['photo']->getData();
+            $foTeam = $this->fileAction($em,$file1,$media);
+//            $foGamer = $this->fileAction($em,$file2,$media);
+
+
+            $team->setName($form['name']->getData());
+            $team->setCategory($form['category']->getData());
+            $team->setClub($form['club']->getData());
+            $team->setStatus($form['status']->getData());
+            //$team->setMedias($foTeam);
+            $team->addMedia($foTeam);
+
+            $em->persist($team);
+            $em->flush();
+
         }
-//        if($request->isMethod('POST')){
-//            return new Response("data: ".$request);
-//        }
 
         return $this->render('AdminBundle:Default:addteam.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+    //insérer dans BD
+    public function fileAction($em,$file,$media){
+        $upload = $this->container->get('admin.image_uploader')->upload($file);
+
+
+        $status = $em->getRepository('AcbbBundle:Status')->findOneById(2);
+
+        $media->setStatus($status);
+        $media->setLink($upload['path']);
+        $media->setName($upload['fileName']);
+        $media->setDate(new \DateTime());
+        $em->persist($media);
+        $em->flush();
+        return $media;
     }
 
 }

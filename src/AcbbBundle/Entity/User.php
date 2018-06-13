@@ -15,16 +15,16 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends BaseUser
 {
     /**
-     * @var string
+     * @var date
      *
-     * @ORM\Column(name="place_birth", type="string", length=45, nullable=false)
+     * @ORM\Column(name="date_birth", type="date", nullable=false)
      */
-    private $placeBirth;
+    private $dateBirth;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="job", type="string", length=45, nullable=false)
+     * @ORM\Column(name="job", type="string", length=45,nullable=true)
      */
     private $job;
 
@@ -48,7 +48,7 @@ class User extends BaseUser
      * @var \AcbbBundle\Entity\Address
      *
      * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Address")
-     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="id",nullable=true)
      */
     private $address;
 
@@ -56,7 +56,7 @@ class User extends BaseUser
      * @var \AcbbBundle\Entity\Media
      *
      * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Media")
-     * @ORM\JoinColumn(name="photo_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="photo_id", referencedColumnName="id",nullable=true)
      */
     private $photo;
 
@@ -64,7 +64,7 @@ class User extends BaseUser
      * @var \AcbbBundle\Entity\Nationality
      *
      * @ORM\ManyToOne(targetEntity="Nationality", inversedBy="users")
-     * @ORM\JoinColumn(name="nationality_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="nationality_id", referencedColumnName="id",nullable=true)
      */
     private $nationality;
 
@@ -72,7 +72,7 @@ class User extends BaseUser
      * @var \AcbbBundle\Entity\Status
      *
      * @ORM\ManyToOne(targetEntity="Status")
-     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id",nullable=true)
      */
     private $status;
 
@@ -80,7 +80,7 @@ class User extends BaseUser
      * @var \AcbbBundle\Entity\Status
      *
      * @ORM\ManyToOne(targetEntity="Status", inversedBy="familySituations")
-     * @ORM\JoinColumn(name="family_situation", referencedColumnName="id")
+     * @ORM\JoinColumn(name="family_situation", referencedColumnName="id",nullable=true)
      */
     private $familySituation;
 
