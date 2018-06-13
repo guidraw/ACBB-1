@@ -30,4 +30,9 @@ class DefaultController extends Controller
         return $this->render('AcbbBundle:Default:faq.html.twig');
     }
 
+    public function redirectOldAction()
+    {
+        return $this->render('AcbbBundle:Default:redirectOld.html.twig');
+    }
+
 }
