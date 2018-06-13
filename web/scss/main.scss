@@ -3,23 +3,24 @@
 
 // Partials
 @import 'partials/mixins',
-		'partials/variables',
-		'partials/structure';
+'partials/variables',
+'partials/structure';
 
 // Pages
 @import 'pages/home',
-		'pages/faq',
-		'pages/contact',
-		'pages/news',
-		'pages/medias';
+'pages/faq',
+'pages/contact',
+'pages/news',
+'pages/medias';
 
 // Composants
 @import 'components/header',
-		'components/last-match',		
-		'components/list-matchs',
-		'components/partners',
-		'components/footer',
-		'components/teams',
-		'components/pagination',
-		'components/steps',
-		'components/construction';
+'components/last-match',
+'components/list-matchs',
+'components/partners',
+'components/footer',
+'components/teams',
+'components/pagination',
+'components/steps',
+'components/construction',
+'components/timeline';
