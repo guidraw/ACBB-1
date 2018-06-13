@@ -1,0 +1,95 @@
+.teams{
+	margin-top: 70px;
+	h3{
+		color: #5f6d74;
+		text-align: center;
+		&::after{
+			background: none !important;
+		}
+	}
+	label{
+		display: inline-block;
+		font-weight: normal;
+		font-family: $circular;
+	}
+	input[type="checkbox"]{
+		margin: 4px 10px;
+	}
+	.checkbox-item{
+		display: block;
+		margin: 5px 0;
+	}
+	.col-sm-8{
+		margin-top: -50px;
+		@include mobile(){
+			margin-top: 0;
+		}
+		.list-matchs{
+			margin-top: 0;
+    	margin-left: 50px;
+    	@include mobile(){
+    		margin-left: 0;
+    		width: 98%;
+    	}
+    	.col-sm-6{
+    		width: 45%;
+    	}
+    	.col-match:nth-child(even){
+    		@include tablet-up(){
+    			margin-left: 10%;    			
+    		}
+    	}
+		}
+	}
+	.glyphicon{
+		float: right;
+		font-weight: bold;
+		&::before{
+			content: "\002b";
+		}
+	}
+	.picker__frame{
+		position: relative !important;
+	}
+	.picker__box{
+		box-shadow: none !important;
+		border: 1px solid #dfe4ef !important;
+	}
+	.picker__holder{
+		background: transparent !important;
+		font-family: $circular !important;
+		@include font(12, 16);
+	}
+	.picker__day--today{
+		background-color: #50e3c2;
+  	box-shadow: 0 2px 6px 0 rgba(171, 171, 171, 0.5);
+		&::before{
+			border-top: .5em solid transparent;
+		}
+	}
+	.picker__footer{
+		display: none !important;
+	}
+	[data-toggle="collapse"]{
+		font-family: $circular;
+		display: block;
+		color: black;
+		@include font(16, 20);
+		margin-bottom: 20px;
+	}
+	.filters{
+		position: relative;
+		background-color: white;
+		border-radius: 13px;
+		padding: 10px;
+		&::before{
+			content: "";
+		    position: absolute;
+		    background: url("/img/brush-filters.png");
+		    height: 40px;
+		    width: 387px;
+		    top: -16px;
+		    left: 0;
+		}
+	}
+}

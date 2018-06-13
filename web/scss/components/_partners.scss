@@ -2,6 +2,24 @@
 	h3{
 		display: block;
 		margin-top: 100px;
-		@include font(50, 54);
+		@include font(40, 44);
+	}
+	.row{
+		margin: 60px 0;
+	}
+	img{
+		display: block;
+		height: 60px;
+		width: 100%;
+		opacity: 0.4;
+		&:hover{
+			opacity: 1;
+			cursor: pointer;
+		}
+		@include mobile(){
+		    height: 100%;
+		    width: 80px;
+		    margin: 20px auto;
+		}
 	}
 }

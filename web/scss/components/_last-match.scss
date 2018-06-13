@@ -1,8 +1,6 @@
 .last-match{
 	h3{
-		font-family: $againts;
-		color: white;
-		@include font(50, 54);
+		@include font(40, 44);
 	}
 	p{
 		display: block;

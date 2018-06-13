@@ -9,10 +9,15 @@
 // Pages
 @import 'pages/home',
 		'pages/faq',
-		'pages/contact';
+		'pages/contact',
+		'pages/news';
 
 // Composants
 @import 'components/header',
 		'components/last-match',		
 		'components/list-matchs',
-		'components/partners';		
+		'components/partners',
+		'components/footer',
+		'components/teams',
+		'components/pagination',
+		'components/steps';

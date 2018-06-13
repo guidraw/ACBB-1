@@ -29,12 +29,16 @@
     }
   }
   li{
+    position: relative;
     @include font(20, 24);
     &.active::after{
       content: '';
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
       background: url('/img/brush.png');
       background-repeat: no-repeat;
-      width: 45px;
+      width: 95px;
       height: 7px;
     }
   }

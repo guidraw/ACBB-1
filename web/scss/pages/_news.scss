@@ -1,0 +1,14 @@
+.news{
+	.last-match{
+		margin: 80px 0;
+
+		&:nth-child(even){
+			.col-sm-4{
+				float: right;
+			}
+			.last-match_content{
+				padding-left: 0;
+			}
+		}
+	}
+}
