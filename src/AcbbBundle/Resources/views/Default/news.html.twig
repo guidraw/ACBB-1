@@ -1,3 +1,93 @@
-Hello World!
-page news
-{{ match.getID() }}
+{% extends '::base.html.twig' %}
+{% block title %}Actualités - ACBB{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="news">
+		<div class="last-match">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 last-match_img">
+					<div class="img-border">
+						<img src="/img/tmp/img1.png" alt="">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-8 last-match_content">
+					<h3>Première actualité</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+			</div>
+		</div>
+		<div class="last-match">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 last-match_img">
+					<div class="img-border">
+						<img src="/img/tmp/img1.png" alt="">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-8 last-match_content">
+					<h3>Deuxième actualité</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+			</div>
+		</div>
+		<div class="last-match">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 last-match_img">
+					<div class="img-border">
+						<img src="/img/tmp/img1.png" alt="">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-8 last-match_content">
+					<h3>Troisième actualité</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+			</div>
+		</div>
+		<div class="last-match">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 last-match_img">
+					<div class="img-border">
+						<img src="/img/tmp/img1.png" alt="">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-8 last-match_content">
+					<h3>Quatrième actualité</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+			</div>
+		</div>
+		<div class="last-match">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 last-match_img">
+					<div class="img-border">
+						<img src="/img/tmp/img1.png" alt="">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-8 last-match_content">
+					<h3>Cinquième actualité</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+			</div>
+		</div>
+		<nav class="nav-pagination" aria-label="Navigation">
+		  <ul class="pagination">
+		    <li>
+		      <a href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    <li class="active"><a href="#">1</a></li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">5</a></li>
+		    <li>
+		      <a href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+	</div>
+</div>
+{% endblock %}

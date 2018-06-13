@@ -1,2 +1,148 @@
-Hello World!
-page team
+{% extends '::base.html.twig' %}
+{% block title %}Equipes - ACBB{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="row teams">
+		<div class="col-sm-4 filters">
+			<h3>Filtres</h3>
+			<a href="#calendar-filter" class="collapse" data-toggle="collapse">Dates <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+			<div id="calendar-filter" class="collapse">
+				<div class="datepicker"></div>
+			</div>
+			<a href="#teams-filter" class="teams-filter" data-toggle="collapse">Equipes <span class="glyphicon" aria-hidden="true"></span></a>
+			<div id="teams-filter" class="collapse">
+				<div class="checkbox-item">
+					<input type="checkbox" id="D3" name="teams">
+    				<label for="D3">D3 - Senior D3</label>
+    			</div>
+				<div class="checkbox-item">
+	    			<input type="checkbox" id="U20" name="teams">
+    				<label for="U20">U20 - Junior Excellence</label>
+    			</div>
+				<div class="checkbox-item">
+	    			<input type="checkbox" id="U17" name="teams">
+    				<label for="U17">U17 - Cadet Elite</label>
+    			</div>
+				<div class="checkbox-item">
+	    			<input type="checkbox" id="U15" name="teams">
+    				<label for="U15">U15 - Minime Elite</label>
+    			</div>
+				<div class="checkbox-item">
+	    			<input type="checkbox" id="U13" name="teams">
+    				<label for="U13">U13 - Benjamin Noir</label>
+    			</div>
+				<div class="checkbox-item">
+	    			<input type="checkbox" id="U11" name="teams">
+    				<label for="U11">U11 - Poussin Noir</label>
+    			</div>
+				<div class="checkbox-item">
+	    			<input type="checkbox" id="U11" name="teams">
+    				<label for="U11">U11 - Poussin Gris</label>
+    			</div>
+				<div class="checkbox-item">
+	    			<input type="checkbox" id="VC" name="teams">
+    				<label for="VC">VC - Vieilles Crosses</label>
+    			</div>
+				<div class="checkbox-item">
+	    			<input type="checkbox" id="LO" name="teams">
+    				<label for="LO">LO - Loisir</label>
+    			</div>
+			</div>
+		</div>
+		<div class="col-sm-8">
+			<div class="row list-matchs">
+				<div class="col-sm-6 col-match">
+					<div class="date upcoming">12/06/2018</div>
+					<p class="match-category">Championnat</p>
+					<div class="match-teams">
+						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
+						<p class="VS">VS</p>
+						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-match">
+					<div class="date upcoming">12/06/2018</div>
+					<p class="match-category">Championnat</p>
+					<div class="match-teams">
+						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
+						<p class="VS">VS</p>
+						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-match">
+					<div class="date upcoming">12/06/2018</div>
+					<p class="match-category">Championnat</p>
+					<div class="match-teams">
+						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
+						<p class="VS">VS</p>
+						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-match">
+					<div class="date upcoming">12/06/2018</div>
+					<p class="match-category">Championnat</p>
+					<div class="match-teams">
+						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
+						<p class="VS">VS</p>
+						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-match">
+					<div class="date upcoming">12/06/2018</div>
+					<p class="match-category">Championnat</p>
+					<div class="match-teams">
+						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
+						<p class="VS">VS</p>
+						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-match">
+					<div class="date upcoming">12/06/2018</div>
+					<p class="match-category">Championnat</p>
+					<div class="match-teams">
+						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
+						<p class="VS">VS</p>
+						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
+					</div>
+				</div>
+			</div>
+			<nav class="nav-pagination" aria-label="Navigation">
+			  <ul class="pagination">
+			    <li>
+			      <a href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    <li class="active"><a href="#">1</a></li>
+			    <li><a href="#">2</a></li>
+			    <li><a href="#">3</a></li>
+			    <li><a href="#">4</a></li>
+			    <li><a href="#">5</a></li>
+			    <li>
+			      <a href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block javascripts %}
+<link rel="stylesheet" href="/js/libs/pickdate/themes/default.css">
+<link rel="stylesheet" href="/js/libs/pickdate/themes/default.date.css">
+<script type="text/javascript" src="/js/libs/pickdate/legacy.js"></script>
+<script type="text/javascript" src="/js/libs/pickdate/picker.js"></script>
+<script type="text/javascript" src="/js/libs/pickdate/picker.date.js"></script>
+<script type="text/javascript">
+	var picker = $('.datepicker').pickadate({
+	  monthsFull: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+	  weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+	  today: 'aujourd\'hui',
+	  clear: 'effacer',
+	  formatSubmit: 'dd/mm/yyyy'
+	});
+</script>
+{% endblock %}

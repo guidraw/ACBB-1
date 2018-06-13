@@ -1,11 +1,19 @@
 .list-matchs{
 	margin-top: 100px;
 	h3{
-		@include font(50, 54);
+		@include font(40, 44);
+	}
+	& + nav{
+		margin-top: 40px;
 	}
 	.row{
 		margin-left: 0;
 		margin-right: 0;
+	}
+	.no-match{
+		display: block;
+		text-align: center;
+		margin-top: 100px;
 	}
 	.col-match{
 		position: relative;
@@ -50,18 +58,19 @@
 				position: absolute;
 				background-repeat: no-repeat;
 				background-position: center;
+				background-size: 80px;
 			}
 			.acbb-team{
 				height: 105px;
     			width: 110px;
     			left: 0;
-    			top: -50px;
+    			top: -30px;
 			}
 			.other-team{
 				width: 140px;
 			    height: 135px;
 			    right: 0;
-			    top: -80px;
+			    top: -50px;
 			}
 			.VS{
 				font-family: "Againts", sans-serif;
