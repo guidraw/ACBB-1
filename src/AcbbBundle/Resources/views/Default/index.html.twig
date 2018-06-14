@@ -22,25 +22,19 @@
 		<div class="list-matchs">
 			<h3 class="text-center">Les matchs</h3>
 			<div class="row">
+				{% for match in matches %}
 				<div class="col-sm-4 col-match">
-					<div class="date upcoming">12/08/2018</div>
-					<p class="match-category">Championnat</p>
+					<div class="date upcoming">{{ match.date | date('Y-m-d') }}</div>
+					<p class="match-category">{{ match.category.name }}</p>
 					<div class="match-teams">
 						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
 						<p class="VS">VS</p>
 						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
 					</div>
 				</div>
-				<div class="col-sm-4"></div>
-				<div class="col-sm-4 col-match">
-					<div class="date past">{{ match.getDate() }}</div>
-					<p class="match-category">{{ match.getCategory() }}</p>
-					<div class="match-teams">
-						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
-						<p class="VS">VS</p>
-						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
-					</div>
-				</div>
+                    <div class="col-sm-4"></div>
+				{% endfor %}
+
 				<!-- Si pas de matchs afficher ça et cacher le reste :
 				<div class="col-sm-12 no-match">
 					<p>Aucun match à venir pour le moment</p>

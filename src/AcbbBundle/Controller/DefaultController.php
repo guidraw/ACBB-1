@@ -4,14 +4,25 @@ namespace AcbbBundle\Controller;
 
 use AcbbBundle\Entity\Match;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
+
         $match = new Match();
+        $em = $this->getDoctrine()->getManager();
+
+
+        $repoMatch = $em->getRepository('AcbbBundle:Match');
+
+        $matches = $repoMatch->findAll();
+
+
         return $this->render('AcbbBundle:Default:index.html.twig', array(
-            'match'=> $match,
+            'matches'=> $matches
         ));
     }
 

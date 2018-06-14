@@ -12,100 +12,28 @@
 			</div>
 			<a href="#teams-filter" class="teams-filter" data-toggle="collapse">Equipes <span class="glyphicon" aria-hidden="true"></span></a>
 			<div id="teams-filter" class="collapse">
+                {% for categorie in categories %}
 				<div class="checkbox-item">
 					<input type="checkbox" id="D3" name="teams">
-    				<label for="D3">D3 - Senior D3</label>
+    				<label for="D3">{{ categorie.name }}</label>
     			</div>
-				<div class="checkbox-item">
-	    			<input type="checkbox" id="U20" name="teams">
-    				<label for="U20">U20 - Junior Excellence</label>
-    			</div>
-				<div class="checkbox-item">
-	    			<input type="checkbox" id="U17" name="teams">
-    				<label for="U17">U17 - Cadet Elite</label>
-    			</div>
-				<div class="checkbox-item">
-	    			<input type="checkbox" id="U15" name="teams">
-    				<label for="U15">U15 - Minime Elite</label>
-    			</div>
-				<div class="checkbox-item">
-	    			<input type="checkbox" id="U13" name="teams">
-    				<label for="U13">U13 - Benjamin Noir</label>
-    			</div>
-				<div class="checkbox-item">
-	    			<input type="checkbox" id="U11" name="teams">
-    				<label for="U11">U11 - Poussin Noir</label>
-    			</div>
-				<div class="checkbox-item">
-	    			<input type="checkbox" id="U11" name="teams">
-    				<label for="U11">U11 - Poussin Gris</label>
-    			</div>
-				<div class="checkbox-item">
-	    			<input type="checkbox" id="VC" name="teams">
-    				<label for="VC">VC - Vieilles Crosses</label>
-    			</div>
-				<div class="checkbox-item">
-	    			<input type="checkbox" id="LO" name="teams">
-    				<label for="LO">LO - Loisir</label>
-    			</div>
+				{% endfor %}
 			</div>
 		</div>
 		<div class="col-sm-8">
+			{#{{ dump(result) }}#}
 			<div class="row list-matchs">
+                {% for match in matches %}
 				<div class="col-sm-6 col-match">
-					<div class="date upcoming">12/06/2018</div>
-					<p class="match-category">Championnat</p>
+					<div class="date upcoming">{{ match.date | date('Y-m-d') }}</div>
+					<p class="match-category">{{ match.category.name }}</p>
 					<div class="match-teams">
 						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
 						<p class="VS">VS</p>
 						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
 					</div>
 				</div>
-				<div class="col-sm-6 col-match">
-					<div class="date upcoming">12/06/2018</div>
-					<p class="match-category">Championnat</p>
-					<div class="match-teams">
-						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
-						<p class="VS">VS</p>
-						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-match">
-					<div class="date upcoming">12/06/2018</div>
-					<p class="match-category">Championnat</p>
-					<div class="match-teams">
-						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
-						<p class="VS">VS</p>
-						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-match">
-					<div class="date upcoming">12/06/2018</div>
-					<p class="match-category">Championnat</p>
-					<div class="match-teams">
-						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
-						<p class="VS">VS</p>
-						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-match">
-					<div class="date upcoming">12/06/2018</div>
-					<p class="match-category">Championnat</p>
-					<div class="match-teams">
-						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
-						<p class="VS">VS</p>
-						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-match">
-					<div class="date upcoming">12/06/2018</div>
-					<p class="match-category">Championnat</p>
-					<div class="match-teams">
-						<div class="acbb-team" style="background-image: url('/img/logo-acbb.png');"></div>
-						<p class="VS">VS</p>
-						<div class="other-team" style="background-image: url('/img/logo-other.png');"></div>
-					</div>
-				</div>
+                {% endfor %}
 			</div>
 			<nav class="nav-pagination" aria-label="Navigation">
 			  <ul class="pagination">

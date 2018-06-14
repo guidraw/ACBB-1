@@ -38,7 +38,7 @@ class TeamController extends Controller
                 'choice_label'  =>  'name',
                 'query_builder' => function(EntityRepository $er){
                     return $er->createQueryBuilder('s')
-                        ->where('s.id =2');
+                        ->where('s.id between 1 and 2');
                 },
             ))
             ->add('medias',     FileType::class, array('label' => 'photo de l\'équipe'))
