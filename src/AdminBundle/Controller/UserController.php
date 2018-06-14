@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,7 +40,7 @@ class UserController extends Controller
                 'class' => 'AcbbBundle:Status',
                 'choice_label'  =>  'name',
             ))
-            ->add('placeBirth',     TextType::class)
+            ->add('dateBirth',     DateType::class)
             ->add('job',     TextType::class)
             ->add('jobPhone',     TextType::class)
             ->add('number',     TextType::class)
@@ -80,7 +81,7 @@ class UserController extends Controller
             $user->setAddress($place);
             $user->setPhoto($photo);
             $user->setEmail($form['email']->getData());
-            $user->setPlaceBirth($form['placeBirth']->getData());
+            $user->setDateBirth($form['dateBirth']->getData());
             $user->setPassword($form['password']->getData());
             $user->setUsername($form['username']->getData());
             $user->setJob($form['job']->getData());

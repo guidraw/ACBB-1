@@ -3,5 +3,6 @@ services:
 #        class: AcbbBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
 
-#  accb.match:
-#    class:AcbbBundle\Entity\Match
+    acbb.image_uploader:
+            class: AcbbBundle\ImageUpload
+            arguments: ['%images_user_directory%']

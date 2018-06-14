@@ -24,6 +24,13 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @ORM\Column(name="gender", type="string", length=20,nullable=false)
+     */
+    private $gender;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="job", type="string", length=45,nullable=true)
      */
     private $job;
@@ -141,17 +148,17 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getPlaceBirth()
+    public function getDateBirth()
     {
-        return $this->placeBirth;
+        return $this->dateBirth;
     }
 
     /**
      * @param string $placeBirth
      */
-    public function setPlaceBirth($placeBirth)
+    public function setDateBirth($dateBirth)
     {
-        $this->placeBirth = $placeBirth;
+        $this->dateBirth = $dateBirth;
     }
 
     /**
@@ -296,6 +303,22 @@ class User extends BaseUser
     public function setTutor($tutor)
     {
         $this->tutor = $tutor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->job;
+    }
+
+    /**
+     * @param string $job
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
     }
 
 

@@ -9,8 +9,8 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    images_directory: '%kernel.project_dir%/web/uploads/images'
-
+    images_admin_directory: '%kernel.project_dir%/web/uploads/admin/images'
+    images_user_directory: '%kernel.project_dir%/web/uploads/user/images'
 framework:
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
