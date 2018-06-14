@@ -49,6 +49,14 @@ class Price
     private $season;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=20, nullable=false)
+     */
+    private $name;
+
+
+    /**
      * @return float
      */
     public function getAmount()
@@ -110,6 +118,22 @@ class Price
     public function setSeason($season)
     {
         $this->season = $season;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 
 }

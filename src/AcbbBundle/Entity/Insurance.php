@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Insurance
  *
- * @ORM\Table(name="insurance", indexes={@ORM\Index(name="fk_insurance_season1_idx", columns={"season_id"}), @ORM\Index(name="fk_insurance_category1_idx", columns={"category_id"})})
+ * @ORM\Table(name="insurance", indexes={@ORM\Index(name="fk_insurance_season1_idx", columns={"season_id"})})
  * @ORM\Entity
  */
 class Insurance
@@ -34,16 +34,6 @@ class Insurance
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-    /**
-     * @var \AcbbBundle\Entity\Category
-     *
-     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Category")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     * })
-     */
-    private $category;
 
     /**
      * @var \AcbbBundle\Entity\Season

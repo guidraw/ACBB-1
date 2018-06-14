@@ -1,5 +1,5 @@
 <?php
-namespace AdminBundle;
+namespace AcbbBundle;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 

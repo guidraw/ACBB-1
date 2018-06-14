@@ -33,6 +33,13 @@ class UserController extends Controller
 
         $formBuilder
             ->add('username',     TextType::class)
+            ->add('gender',     ChoiceType::class, array(
+                'choices' => array(
+                    'Homme' => 'Homme',
+                    'Femme' => 'Femme'
+                ),
+                'expanded' => true,
+                'label' => 'Sexe *'))
             ->add('email',     EmailType::class)
             ->add('password',     PasswordType::class)
             ->add('photo',FileType::class)
@@ -80,6 +87,7 @@ class UserController extends Controller
 
             $user->setAddress($place);
             $user->setPhoto($photo);
+            $user->setGender($form['gender']->getData());
             $user->setEmail($form['email']->getData());
             $user->setDateBirth($form['dateBirth']->getData());
             $user->setPassword($form['password']->getData());

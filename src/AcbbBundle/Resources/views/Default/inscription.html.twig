@@ -64,105 +64,73 @@
             </div>
         </div>
     </div>
-    
-    <form action="#" method="post" role="form">
-        {{ form_start(form) }}
+
+    {{ form_start(form) }}
+
         {{ form_errors(form) }}
     	<p>* champ obligatoire</p>
         <div class="panel panel-primary setup-content" id="step-1">
             <div class="panel-body row">
             	<div class="col-sm-6">
 	                <div class="form-group">
-                        {{ form_label(form.username, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_row(form.username,{'attr': {'class': 'form-control'}}) }}
                     </div>
 	                <div class="form-group form-radio">
-                        {{ form_label(form.gender, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.gender) }}
+                        {{ form_row(form.gender) }}
 
                     </div>
 	                <div class="form-group">
-                        {{ form_label(form.number, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.number, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_row(form.number, {'attr': {'class': 'form-control'}}) }}
 
                     </div>
                     <div class="form-group">
-                        {{ form_label(form.street, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.street, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_row(form.street, {'attr': {'class': 'form-control'}}) }}
                     </div>
                     <div class="form-group">
-                        {{ form_label(form.zipCode, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.zipCode, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_row(form.zipCode, {'attr': {'class': 'form-control'}}) }}
                     </div>
                     <div class="form-group">
-                        {{ form_label(form.city, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_row(form.city, {'attr': {'class': 'form-control'}}) }}
 
                     </div>
                 </div>
                 <div class="col-sm-6">
 	                <div class="form-group">
-                        {{ form_label(form.dateBirth, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.dateBirth) }}
+                        {{ form_row(form.dateBirth) }}
 	                </div>
 	                <div class="form-group">
-                        {{ form_label(form.nationality, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.nationality, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_row(form.nationality, {'attr': {'class': 'form-control'}}) }}
                     </div>
 	                <div class="form-group">
-                        {{ form_label(form.jobPhone, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.jobPhone, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_row(form.jobPhone, {'attr': {'class': 'form-control'}}) }}
 	                </div>
 	                <div class="form-group">
                         {{ form_label(form.email, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
 	                </div>
                     <div class="form-group">
-                        {{ form_label(form.password, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_row(form.password, {'attr': {'class': 'form-control'}}) }}
                     </div>
 	                <div class="form-group">
-                        {{ form_label(form.photo, "", {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_widget(form.photo) }}
+                        {{ form_row(form.photo) }}
 	                </div>
                 </div>
             </div>
-            {{ form_widget(form.valider, {'attr': {'class': 'btn btn-primary pull-right'}}) }}
-            {#{{ form_end(form) }} nextBtn#}
+
+            <button class="btn btn-primary nextBtn pull-right" type="button">Suivant</button>
         </div>
         
         <div class="panel panel-primary setup-content" id="step-2">
             <div class="panel-body row">
                 <div class="col-sm-6">
 	                <div class="form-group">
-	                    <label class="control-label">Type license *</label>
-	                    <select required="required" class="form-control">
-	                    	<option value="Compétition">Compétition</option>
-	                    </select>
+                        {{ form_row(form.tarif) }}
 	                </div>
 	                <div class="form-group">
-	                    <label class="control-label">Catégorie *</label>
-						<select required="required" class="form-control">
-	                    	<option value="U9">U9 - Moustique</option>
-	                    	<option value="D3">D3 - Senior D3</option>
-		    				<option value="U20">U20 - Junior Excellence</option>
-		    				<option value="U17">U17 - Cadet Elite</option>
-		    				<option value="U15">U15 - Minime Elite</option>
-		    				<option value="U13">U13 - Benjamin Noir</option>
-		    				<option value="U11">U11 - Poussin Noir</option>
-		    				<option value="U11">U11 - Poussin Gris</option>
-		    				<option value="VC">VC - Vieilles Crosses</option>
-		    				<option value="LO">LO - Loisir</option>
-	                    </select>
+                        {{ form_row(form.category) }}
 	                </div>
 	                <div class="form-group form-radio">
-	                    <label class="control-label">Assurance *</label>
-						<input type="radio" id="baseA" name="assurance">
-	    				<label for="baseA">Garantie de base A (0€)</label>
-						<input type="radio" id="baseB" name="assurance">
-	    				<label for="baseB">Option B (15,91€)</label>
-	    				<input type="radio" id="baseC" name="assurance">
-	    				<label for="baseC">Option C (21,56€)</label>
+                        {{ form_row(form.insurance) }}
 	                </div>
                 </div>
                 <div class="col-sm-6">
@@ -178,38 +146,36 @@
         <div class="panel panel-primary setup-content" id="step-3">
             <div class="panel-body row">
                 <div class="form-group form-radio">
-                    <label for="urgences" class="control-label">Urgences</label>
-					<input type="checkbox" id="urgences" name="validate">
-    				<label class="checkbox-validate">En cas d'accident, j'autorise les dirigeants du club ou membres mandatés de la section Hockey sur glace de l'ACBB à faire appel aux services de secours d'urgence ou à faire transporter mon enfant dans le centre hospitalier le plus proche. Le responsable d'équipe me contactera aussitôt par téléphone.<br />Si allergique à certains médicaments ou traitements, préciser lesquels :</label>
-    				<input type="text" class="form-control">
+                    {{ form_row(form.emergency) }}
+                    <label class="checkbox-validate">En cas d'accident, j'autorise les dirigeants du club ou membres mandatés de la section Hockey sur glace de l'ACBB à faire appel aux services de secours d'urgence ou à faire transporter mon enfant dans le centre hospitalier le plus proche. Le responsable d'équipe me contactera aussitôt par téléphone.<br />Si allergique à certains médicaments ou traitements, préciser lesquels :</label>
+                    {{ form_row(form.medicamentAllergy) }}
+
                 </div>
                 <div class="form-group form-radio">
-                    <label for="antidopage" class="control-label">Antidopage</label>
-					<input type="checkbox" id="antidopage" name="validate">
-    				<label class="checkbox-validate">Conformément à l'article 7 du décret relatif aux prélèvements et examens autorisés dans les contrôles antidopage, j'autorise que soit effectué sur mon enfant un prélèvement nécessitant un prélèvement sanguin ou salivaire.</label>
+                    {{ form_row(form.antidoping) }}
+                    <label class="checkbox-validate">Conformément à l'article 7 du décret relatif aux prélèvements et examens autorisés dans les contrôles antidopage, j'autorise que soit effectué sur mon enfant un prélèvement nécessitant un prélèvement sanguin ou salivaire.</label>
                 </div>
                 <div class="form-group form-radio">
-                    <label for="deplacement" class="control-label">Déplacements</label>
-					<input type="checkbox" id="deplacement" name="validate">
+                    {{ form_row(form.trip) }}
     				<label class="checkbox-validate">Dans le cas où je suis dans l'impossibilité d'accompagner mon enfant lors de déplacements concernant la section Hockey sur glace (matchs, tournois, stages, compétitions, animations extérieures), je l'autorise à monter dans le véhicule conduit par un tiers (parent, responsable d'équipe ou membre du club).</label>
                 </div>
                 <div class="form-group form-radio">
-                    <label for="dal" class="control-label">Droits à l'image</label>
-					<input type="checkbox" id="dal" name="validate">
+                    {{ form_row(form.imageRight) }}
     				<label class="checkbox-validate">J’autorise la section Hockey sur glace de l'ACBB à afficher des photos ou vidéos où pourrait apparaître distinctement le joueur pour les usages suivants :
 					- Site Internet de la section Hockey sur Glace et autres sites web en relation avec le sport
 					- Mensuel du club ou autres publications sportives
 					- Vitrine du club ou autre support de communication du club. Aucun profit financier lié à l'image du joueur ne pourra être utilisé sans l'accord de celui-ci ou de son tuteur légal.</label>
                 </div>
                 <div class="form-group form-radio">
-                    <label for="ri" class="control-label">Règlement intérieur *</label>
-					<input type="checkbox" id="ri" name="validate" required="required"><br />
-    				<label class="checkbox-validate">En souhaitant adhérer à la section Hockey sur glace de l'ACBB, j'accepte les conditions générales du Règlement Intérieur téléchargeable depuis le site web de la section. </label>
+                    {{ form_row(form.rules) }}
+                    <label class="checkbox-validate">En souhaitant adhérer à la section Hockey sur glace de l'ACBB, j'accepte les conditions générales du Règlement Intérieur téléchargeable depuis le site web de la section. </label>
                 </div>
-                <button class="btn btn-primary pull-right" type="submit">Terminer l'inscription</button>
+                {{ form_widget(form.valider, {'attr': {'class': 'btn btn-primary pull-right'}}) }}
+
+                {#<button class="btn btn-primary pull-right" type="submit">Terminer l'inscription</button>#}
             </div>
         </div>
-    </form>
+        {{ form_end(form) }}
 </div>
 {% endblock %}
 {% block javascripts %}

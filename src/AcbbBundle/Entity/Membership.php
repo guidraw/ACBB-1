@@ -7,24 +7,13 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Membership
  *
- * @ORM\Table(name="membership", indexes={@ORM\Index(name="fk_member_user1_idx", columns={"user_id"}), @ORM\Index(name="fk_member_status1_idx", columns={"status_id"}), @ORM\Index(name="fk_member_season1_idx", columns={"season_id"}), @ORM\Index(name="fk_adherent_insurance1_idx", columns={"insurance_id"}), @ORM\Index(name="fk_membership_tariff1_idx", columns={"price_id"}), @ORM\Index(name="fk_membership_status1_idx", columns={"email_status"}), @ORM\Index(name="fk_membership_status2_idx", columns={"phone_status"})})
+ * @ORM\Table(name="membership", indexes={@ORM\Index(name="fk_member_user1_idx", columns={"user_id"}), @ORM\Index
+ * (name="fk_member_category1_idx", columns={"category_id"}), @ORM\Index
+ * (name="fk_member_status1_idx", columns={"status_id"}), @ORM\Index(name="fk_member_season1_idx", columns={"season_id"}), @ORM\Index(name="fk_adherent_insurance1_idx", columns={"insurance_id"}), @ORM\Index(name="fk_membership_tariff1_idx", columns={"price_id"}), @ORM\Index(name="fk_membership_status1_idx", columns={"email_status"}), @ORM\Index(name="fk_membership_status2_idx", columns={"phone_status"})})
  * @ORM\Entity
  */
 class Membership
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=100, nullable=false)
-     */
-    private $description;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="comment", type="string", length=100, nullable=false)
-     */
-    private $comment;
 
     /**
      * @var boolean
@@ -76,6 +65,16 @@ class Membership
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * @var \AcbbBundle\Entity\Category
+     *
+     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Category")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * })
+     */
+    private $category;
 
     /**
      * @var \AcbbBundle\Entity\Insurance
@@ -147,37 +146,6 @@ class Membership
      */
     private $price;
 
-    /**
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @return string
-     */
-    public function getComment()
-    {
-        return $this->comment;
-    }
-
-    /**
-     * @param string $comment
-     */
-    public function setComment($comment)
-    {
-        $this->comment = $comment;
-    }
 
     /**
      * @return bool
@@ -401,6 +369,22 @@ class Membership
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    /**
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
     }
 
 }
