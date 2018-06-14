@@ -51,6 +51,7 @@ class InscriptionController extends Controller
             ->add('photo',FileType::class, array('label' => 'Photo de vous *'))
             ->add('dateBirth',     DateType::class,array(
                 'label' => 'Date du naissance *',
+                'years' => range(date('Y')-50, date('Y'))
 
             ))
             ->add('jobPhone',     TextType::class,array('label' => 'Tel. portable *'))
@@ -163,11 +164,6 @@ class InscriptionController extends Controller
             'form' => $form->createView(),
         ));
     }
-//
-//
-//        return $this->render('AdminBundle:Default:addmatch.html.twig', array(
-//            'form' => $form->createView(),
-//        ));
 
     //insérer dans BD
     public function fileAction($em,$file,$media){

@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,7 +48,9 @@ class UserController extends Controller
                 'class' => 'AcbbBundle:Status',
                 'choice_label'  =>  'name',
             ))
-            ->add('dateBirth',     DateType::class)
+            ->add('dateBirth',     DateType::class, array(
+                'years' => range(date('Y')-50, date('Y'))
+            ))
             ->add('job',     TextType::class)
             ->add('jobPhone',     TextType::class)
             ->add('number',     TextType::class)
