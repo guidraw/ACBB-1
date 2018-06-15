@@ -25,3 +25,7 @@ admin_addmember:
 admin_addmedia:
     path:     /addmedia
     defaults: { _controller: AdminBundle:Media:addmedia }
+
+admin_addnew:
+    path:     /addnew
+    defaults: { _controller: AdminBundle:New:addnew }

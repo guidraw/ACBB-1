@@ -148,7 +148,7 @@ class InscriptionController extends Controller
             $membre->setInsurance($insurrance);
             $membre->setPrice($price);
             $membre->setEmergency($form['emergency']->getData() == false?0:1);
-            $membre->setCategory($form['category']->getData() == false?0:1);
+            $membre->setCategory($form['category']->getData());
             $membre->setMedicamentAllergy($form['medicamentAllergy']->getData());
             $membre->setAntidoping($form['antidoping']->getData() == false?0:1);
             $membre->setTrip($form['trip']->getData() == false?0:1);

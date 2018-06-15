@@ -105,7 +105,7 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
 
-            return new Response(json_encode($file));
+            return $this->redirectToRoute('admin_homepage');
         }
 
         return $this->render('AdminBundle:Default:adduser.html.twig', array(

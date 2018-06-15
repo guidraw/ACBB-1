@@ -49,7 +49,7 @@ class ClubController extends Controller
 
             $em->persist($club);
             $em->flush();
-
+            return $this->redirectToRoute('admin_homepage');
         }
 
         return $this->render('AdminBundle:Default:addteam.html.twig', array(

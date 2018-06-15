@@ -18,11 +18,16 @@ class DefaultController extends Controller
 
         $repoMatch = $em->getRepository('AcbbBundle:Match');
 
-        $matches = $repoMatch->findAll();
+        $matches = $repoMatch->findBy([],[],2);
+
+        $repoNew = $em->getRepository('AcbbBundle:News');
+
+        $new = $repoNew->findBy([],['id'=>'DESC'],1);
 
 
         return $this->render('AcbbBundle:Default:index.html.twig', array(
-            'matches'=> $matches
+            'matches'=> $matches,
+            'new'=>$new
         ));
     }
 

@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * News
  *
- * @ORM\Table(name="news", indexes={@ORM\Index(name="fk_news_status1_idx", columns={"status_id"}), @ORM\Index(name="fk_news_user1_idx", columns={"author_id"})})
+ * @ORM\Table(name="news", indexes={@ORM\Index(name="fk_news_status1_idx", columns={"status_id"}), @ORM\Index
+ * (name="fk_news_user1_idx", columns={"author_id"}),@ORM\Index(name="fk_news_media1_idx", columns={"media_id"})})
  * @ORM\Entity
  */
 class News
@@ -60,7 +61,7 @@ class News
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
@@ -71,6 +72,17 @@ class News
      * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     private $status;
+
+    /**
+     * @var \AcbbBundle\Entity\Media
+     *
+     * @ORM\ManyToOne(targetEntity="AcbbBundle\Entity\Media")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="media_id", referencedColumnName="id")
+     * })
+     */
+
+    private $media;
 
     /**
      * @var \AcbbBundle\Entity\User
@@ -273,5 +285,12 @@ class News
         $this->categories->removeElement($category);
     }
 
+    public function getMedia(){
+        return $this->media;
+    }
+
+    public function setMedia($media){
+        $this->media = $media;
+    }
 }
 

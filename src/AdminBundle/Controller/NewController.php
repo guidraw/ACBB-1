@@ -4,36 +4,38 @@ namespace AdminBundle\Controller;
 
 
 use AcbbBundle\Entity\Media;
-use AcbbBundle\Entity\Album;
-use Doctrine\ORM\EntityRepository;
+use AcbbBundle\Entity\News;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
-class MediaController extends Controller
+class NewController extends Controller
 {
 
-    public function addmediaAction(Request $request)
+    public function addnewAction(Request $request)
     {
         $media = new Media();
-        $album = new Album();
+        $new = new News();
 
-        $form = $this->get('form.factory')->createBuilder(FormType::class, array($album,$media))
-            ->add('name',     TextType::class, array('label' => 'Nom d\'Album'))
-            ->add('author',     TextType::class, array('label' => 'auteur'))
-            ->add('photographer',     TextType::class, array('label' => 'photographe'))
+        $form = $this->get('form.factory')->createBuilder(FormType::class, array($new,$media))
+            ->add('name',     TextType::class, array('label' => 'Titre'))
+            ->add('author',     EntityType::class, array(
+                'class' => 'AcbbBundle:User',
+                'choice_label'  =>  'username',
+            ))
             ->add('category',     EntityType::class, array(
                 'class' => 'AcbbBundle:Category',
                 'choice_label'  =>  'name',
             ))
-            ->add('season',     EntityType::class, array(
-                'class' => 'AcbbBundle:Season',
-                'choice_label'  =>  'name',
-            ))
+            ->add('date', DateType::class, array('label' => 'Date de pub'))
+            ->add('description',     TextType::class)
+            ->add('content',     TextareaType::class, array('label' => 'Contenue'))
             ->add('medias',     FileType::class, array('label' => 'photo'))
             ->add('valider',      SubmitType::class)
             ->getForm()
@@ -46,16 +48,17 @@ class MediaController extends Controller
             $foto = $this->fileAction($em,$file1,$media);
 
 
-            $album->setName($form['name']->getData());
-            $album->setAuthor($form['author']->getData());
-            $album->setPhotographer($form['photographer']->getData());
-            $album->addCategory($form['category']->getData());
-            $album->setSeason($form['season']->getData());
-            $album->addMedia($foto);
-            $album->setUrl('localhost/album');
-            $album->setPublicationDate(new \DateTime());
+            $new->setName($form['name']->getData());
+            $new->setAuthor($form['author']->getData());
+            $new->addCategory($form['category']->getData());
+            $new->setMedia($foto);
+            $new->setUrl('localhost/actualites');
+            $new->setPublicationDate($form['date']->getData());
+            $new->setContent($form['content']->getData());
+            $new->setDescription($form['description']->getData());
+            $new->setCreateDate(new \DateTime());
 
-            $em->persist($album);
+            $em->persist($new);
             $em->flush();
             return $this->redirectToRoute('admin_homepage');
         }
