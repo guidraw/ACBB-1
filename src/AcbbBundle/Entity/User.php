@@ -17,14 +17,14 @@ class User extends BaseUser
     /**
      * @var date
      *
-     * @ORM\Column(name="date_birth", type="date", nullable=false)
+     * @ORM\Column(name="date_birth", type="date", nullable=true)
      */
     private $dateBirth;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="gender", type="string", length=20,nullable=false)
+     * @ORM\Column(name="gender", type="string", length=20,nullable=true)
      */
     private $gender;
 

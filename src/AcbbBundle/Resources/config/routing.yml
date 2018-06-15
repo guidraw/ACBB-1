@@ -2,6 +2,9 @@ acbb_homepage:
     path:     /
     defaults: { _controller: AcbbBundle:Default:index }
 
+acbb_logout:
+    path:     /logout
+
 acbb_club:
     resource: "@AcbbBundle/Resources/config/routing_club.yml"
     prefix:   /club

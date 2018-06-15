@@ -13,3 +13,15 @@ admin_addmatch:
 admin_adduser:
     path:     /adduser
     defaults: { _controller: AdminBundle:User:adduser }
+
+admin_addclub:
+    path:     /addclub
+    defaults: { _controller: AdminBundle:Club:addclub }
+
+admin_addmember:
+    path:     /addmember
+    defaults: { _controller: AdminBundle:Membership:addmember }
+
+admin_addmedia:
+    path:     /addmedia
+    defaults: { _controller: AdminBundle:Media:addmedia }
